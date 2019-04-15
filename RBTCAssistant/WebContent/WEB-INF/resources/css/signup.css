@@ -1,0 +1,58 @@
+.besar{
+	width : 600px;
+	height : 600px;
+	margin : auto;
+	border : 1px solid #318cbf; 
+	border-radius : 10px;
+}
+
+.header{
+	height : 80px;
+	background-color : #318cbf;
+	border-top-left-radius : 10px;
+	border-top-right-radius : 10px;
+}
+
+.logo{
+	font-family : tw cen mt;
+	color : white;
+	padding-top : 20px;
+	padding-left : 10px;
+	font-size : 30px;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+.badan{
+	font-family : tw cen mt;
+}
+
+.form-css{
+	margin-top : 30px;
+	padding-left : 50px;
+}
+
+input[type=text] {
+  width: 80%;
+  padding: 8px 15px;
+  margin: 8px 0;
+  
+  box-sizing: border-box;
+}
+
+input[type=password]{
+  width: 80%;
+  padding: 8px 15px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=submit]{
+	background-color: #59bcf2;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+	border-radius : 5px;
+}

@@ -41,3 +41,13 @@ Sistem ini memiliki kebutuhan yaitu :
 
 ### Sitemap Aplikasi
 ![Sitemap RBTC Assistant (1)](https://user-images.githubusercontent.com/32903504/56113205-5f8fe400-5f87-11e9-86d3-a792cdac06de.png)
+
+### Tampilan Web  
+Menu Utama 
+![menu utama](https://user-images.githubusercontent.com/32873349/56138204-9b936b00-5fc0-11e9-8903-314890ece472.png)  
+  
+Halaman Login
+![login page](https://user-images.githubusercontent.com/32873349/56138250-b9f96680-5fc0-11e9-88a7-7cf186a04140.png)  
+  
+Halaman Sign Up
+![signup page](https://user-images.githubusercontent.com/32873349/56138271-c5e52880-5fc0-11e9-853f-0c0a911922be.png)
