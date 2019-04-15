@@ -38,3 +38,6 @@ Sistem ini memiliki kebutuhan yaitu :
 
 ### Use Case Diagram
 ![Main Use Case RBTCassistant](https://user-images.githubusercontent.com/32873347/56113005-c82a9100-5f86-11e9-8585-d7aeb919fc64.jpg)
+
+### Sitemap Aplikasi
+![Sitemap RBTC Assistant (1)](https://user-images.githubusercontent.com/32903504/56113205-5f8fe400-5f87-11e9-86d3-a792cdac06de.png)
