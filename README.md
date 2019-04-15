@@ -35,3 +35,6 @@ Sistem ini memiliki kebutuhan yaitu :
   3. Mengganti status peminjaman  
   4. Memberikan deadline pengembalian buku
 ```
+
+### Use Case Diagram
+![Main Use Case RBTCassistant](https://user-images.githubusercontent.com/32873347/56113005-c82a9100-5f86-11e9-8585-d7aeb919fc64.jpg)
