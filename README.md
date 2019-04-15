@@ -6,7 +6,7 @@ Nama Kelompok :
 2. Modista Garsia - 05111640000031
 3. Fina Fitri Yunita - 05111640000067  
   
-Nama Sistem : 
+Nama Sistem : RBTC Assistant
 
 ### Analisa Sistem
 RBTC merupakan ruang baca yang terletak di Departemen Informatika ITS. Biasanya para mahasiswa yang ingin meminjam buku, dapat melakukannya di RBTC. Akan tetapi semua proses peminjaman masih dilakukan secara manual menggunakan kertas. Oleh karena itu, sistem ini dibuat agar dapat mempermudah proses peminjaman buku agar menjadi lebih mudah dan lebih cepat.   
