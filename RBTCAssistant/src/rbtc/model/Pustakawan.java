@@ -1,11 +1,28 @@
 package rbtc.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="pustakawan")
 public class Pustakawan {
+	
+	@Column(name="nip")
 	private String nip;
+	
+	@Column(name="nama")
 	private String nama;
+	
+	@Column(name="password")
 	private String password;
+	
+	@Column(name="email")
 	private String email;
+	
+	@Column(name="no_hp")
 	private String nohp;
+	
 	public String getNip() {
 		return nip;
 	}

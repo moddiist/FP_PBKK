@@ -1,12 +1,31 @@
 package rbtc.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="buku")
 public class Buku {
+	
+	@Column(name="isbn")
 	private String isbn;
+	
+	@Column(name="judul")
 	private String judul;
+	
+	@Column(name="pengarang")
 	private String pengarang;
+	
+	@Column(name="tahun_terbit")
 	private String tahun_terbit;
+	
+	@Column(name="edisi")
 	private String edisi;
+	
+	@Column(name="status")
 	private String status;
+	
 	public String getIsbn() {
 		return isbn;
 	}

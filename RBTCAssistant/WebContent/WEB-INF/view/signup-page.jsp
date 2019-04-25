@@ -17,17 +17,17 @@
 	</div>
 	<div class="badan">
 		<div class="form-css">
-			<form:form>
+			<form:form action="prosesDaftar" method="POST" modelAttribute="mahasiswa">
 				Nama : <br />
-				<input type="text"> <br /><br />
+				<form:input path="nama"/> <br /><br />
 				NRP : <br />
-				<input type="text"> <br /><br />
+				<form:input path="nrp" /> <br /><br />
 				Password <br />
-				<input type="password"> <br /><br />
+				<form:password path="password" /> <br /><br />
 				Email : <br />
-				<input type="text"> <br /><br />
+				<form:input path="email" /> <br /><br />
 				No. HP : <br />
-				<input type="text"> <br /><br />
+				<form:input path="nohp" /> <br /><br />
 				<input type="submit" value="Submit">
 			</form:form>
 		</div>
