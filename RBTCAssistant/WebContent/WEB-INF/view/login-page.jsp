@@ -17,11 +17,11 @@
 	</div>
 	<div class="badan">
 		<div class="form-css">
-			<form:form>
+			<form:form action="prosesLogin" method="POST" modelAttribute="mahasiswa">
 				NRP : <br />
-				<input type="text"> <br /><br />
+				<form:input path="nrp" /> <br /><br />
 				Password : <br />
-				<input type="password"> <br /><br />
+				<form:password path="password" /> <br /><br />
 				
 				<input type="submit" value="Submit">
 				

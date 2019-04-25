@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 @Controller
 public class Control {
 
@@ -20,7 +21,8 @@ public class Control {
 	}
 	
 	@RequestMapping("/login")
-	public String loginPage(){
+	public String loginPage(Model model){
+		model.addAttribute("mahasiswa", new Mahasiswa());
 		return "login-page";
 	}
 	
@@ -52,6 +54,36 @@ public class Control {
 				s.close();
 			}
 			return "logged-mahasiswa";
+		}
+	}
+	
+	@RequestMapping("/prosesLogin")
+	public String loginMhs(@Valid @ModelAttribute("mahasiswa") Mahasiswa mahasiswa, BindingResult bindres) {
+		if(bindres.hasErrors()) {
+			return "login-page";
+		}
+		else {
+			SessionFactory s = new Configuration()
+					.configure("hibernate.xml")
+					.addAnnotatedClass(Mahasiswa.class)
+					.buildSessionFactory();
+			Session ses = s.getCurrentSession();
+			try {
+				ses.beginTransaction();
+				
+				//get student
+				Mahasiswa user = ses.get(Mahasiswa.class, mahasiswa.getNrp() );
+				if(user.getPassword().equals(mahasiswa.getPassword())) {
+					return "logged-mahasiswa";
+				}
+				else {
+					return "login-page";
+				}
+
+			}
+			finally {
+				s.close();
+			}
 		}
 	}
 }

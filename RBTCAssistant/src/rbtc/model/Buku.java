@@ -2,12 +2,13 @@ package rbtc.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="buku")
 public class Buku {
-	
+	@Id
 	@Column(name="isbn")
 	private String isbn;
 	
