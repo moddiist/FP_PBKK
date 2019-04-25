@@ -5,7 +5,16 @@ public class Mahasiswa {
 	private String nrp;
 	private String email;
 	private String nohp;
+	private String password;
 	
+	
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getNama() {
 		return nama;
 	}
@@ -30,6 +39,23 @@ public class Mahasiswa {
 	public void setNohp(String nohp) {
 		this.nohp = nohp;
 	}
+	
+	public Mahasiswa() {}
+	public Mahasiswa(String nama, String nrp, String email, String nohp, String password) {
+		super();
+		this.nama = nama;
+		this.nrp = nrp;
+		this.email = email;
+		this.nohp = nohp;
+		this.password = password;
+	}
+	
+	@Override
+	public String toString() {
+		return "Mahasiswa [nama=" + nama + ", nrp=" + nrp + ", email=" + email + ", nohp=" + nohp + ", password="
+				+ password + "]";
+	}
+	
 	
 	
 }
