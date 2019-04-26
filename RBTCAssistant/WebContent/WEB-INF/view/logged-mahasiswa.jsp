@@ -7,6 +7,6 @@
 <title>RBTCAssistant</title>
 </head>
 <body>
-<h1>HALO MAHASISWA, ${mahasiswa.nama }</h1>
+<h1>HALO MAHASISWA, ${model.nama }</h1>
 </body>
 </html>

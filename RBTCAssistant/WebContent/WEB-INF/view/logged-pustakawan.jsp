@@ -10,6 +10,6 @@
 <title>RBTCAssistant</title>
 </head>
 <body>
-<h1>HALO PUSTAKAWAN</h1>
+<h1>HALO PUSTAKAWAN, ${model.nama }</h1>
 </body>
 </html>

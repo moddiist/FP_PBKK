@@ -1,6 +1,8 @@
 package rbtc.control;
 
 import rbtc.model.Mahasiswa;
+import rbtc.model.Pustakawan;
+import rbtc.model.Login;
 import javax.validation.Valid;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,12 +24,12 @@ public class Control {
 	
 	@RequestMapping("/login")
 	public String loginPage(Model model){
-		model.addAttribute("mahasiswa", new Mahasiswa());
+		model.addAttribute("model", new Login());
 		return "login-page";
 	}
 	
 	@RequestMapping("/signup")
-	public String signupPage(Model model) {
+	public String signupPageMahasiswa(Model model) {
 		model.addAttribute("mahasiswa", new Mahasiswa());
 		return "signup-page";
 	}
@@ -58,32 +60,67 @@ public class Control {
 	}
 	
 	@RequestMapping("/prosesLogin")
-	public String loginMhs(@Valid @ModelAttribute("mahasiswa") Mahasiswa mahasiswa, BindingResult bindres) {
+	public String prosesLogin(@Valid @ModelAttribute("model") Login model, BindingResult bindres) {
 		if(bindres.hasErrors()) {
 			return "login-page";
 		}
 		else {
-			SessionFactory s = new Configuration()
-					.configure("hibernate.xml")
-					.addAnnotatedClass(Mahasiswa.class)
-					.buildSessionFactory();
-			Session ses = s.getCurrentSession();
-			try {
-				ses.beginTransaction();
-				
-				//get student
-				Mahasiswa user = ses.get(Mahasiswa.class, mahasiswa.getNrp() );
-				if(user.getPassword().equals(mahasiswa.getPassword())) {
-					return "logged-mahasiswa";
-				}
-				else {
-					return "login-page";
-				}
+			if(model.getRole().equals("Mahasiswa")) {
+				SessionFactory s = new Configuration()
+						.configure("hibernate.xml")
+						.addAnnotatedClass(Mahasiswa.class)
+						.buildSessionFactory();
+				Session ses = s.getCurrentSession();
+				try {
+					ses.beginTransaction();
+					
+					//get student
+					Mahasiswa user = ses.get(Mahasiswa.class, model.getId() );
+					if(user.getPassword().equals(model.getPassword())) {
+						model.setNama(user.getNama());
+						model.setEmail(user.getEmail());
+						model.setNohp(user.getNohp());
+						return "logged-mahasiswa";
+					}
+					else {
+						return "login-page";
+					}
 
+				}
+				finally {
+					s.close();
+				}
 			}
-			finally {
-				s.close();
+			else if(model.getRole().equals("Pustakawan")){
+				SessionFactory s = new Configuration()
+						.configure("hibernate.xml")
+						.addAnnotatedClass(Pustakawan.class)
+						.buildSessionFactory();
+				Session ses = s.getCurrentSession();
+				try {
+					ses.beginTransaction();
+					
+					//get student
+					Pustakawan user = ses.get(Pustakawan.class, model.getId() );
+					if(user.getPassword().equals(model.getPassword())) {
+						model.setNama(user.getNama());
+						model.setEmail(user.getEmail());
+						model.setNohp(user.getNohp());
+						return "logged-pustakawan";
+					}
+					else {
+						return "login-page";
+					}
+
+				}
+				finally {
+					s.close();
+				}
 			}
+			else {
+				return "login-page";
+			}
+			
 		}
 	}
 }

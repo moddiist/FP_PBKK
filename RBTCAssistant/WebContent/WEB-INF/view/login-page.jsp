@@ -17,12 +17,14 @@
 	</div>
 	<div class="badan">
 		<div class="form-css">
-			<form:form action="prosesLogin" method="POST" modelAttribute="mahasiswa">
-				NRP : <br />
-				<form:input path="nrp" /> <br /><br />
+			<form:form action="prosesLogin" method="POST" modelAttribute="model">
+				NRP/NIP : <br />
+				<form:input path="id" /> <br /><br />
 				Password : <br />
 				<form:password path="password" /> <br /><br />
-				
+				Role : <br />
+				<form:radiobutton path="role" value="Mahasiswa" />Mahasiswa
+				<form:radiobutton path="role" value="Pustakawan" />Pustakawan<br /><br />
 				<input type="submit" value="Submit">
 				
 			</form:form>
