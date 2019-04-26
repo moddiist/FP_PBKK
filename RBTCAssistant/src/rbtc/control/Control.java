@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -30,12 +32,12 @@ public class Control {
 	
 	@RequestMapping("/signup")
 	public String signupPageMahasiswa(Model model) {
-		model.addAttribute("mahasiswa", new Mahasiswa());
+		model.addAttribute("model", new Mahasiswa());
 		return "signup-page";
 	}
 	
 	@RequestMapping("/prosesDaftar")
-	public String daftarBaru(@Valid @ModelAttribute("mahasiswa") Mahasiswa mahasiswa, BindingResult bindres) {
+	public ModelAndView daftarBaruMhs(@Valid @ModelAttribute("model") Mahasiswa model, BindingResult bindres, RedirectAttributes redir) {
 		SessionFactory s = new Configuration()
 				.configure("hibernate.xml")
 				.addAnnotatedClass(Mahasiswa.class)
@@ -43,26 +45,30 @@ public class Control {
 		Session ses = s.getCurrentSession();
 		
 		if(bindres.hasErrors()) {
-			return "signup-page";
+			ModelAndView mav = new ModelAndView("sign-up");
+			return mav;
 		}
 		else {
 			try {
 				//gunakan session disini
 				ses.beginTransaction();
-				ses.save(mahasiswa);
+				ses.save(model);
 				ses.getTransaction().commit();
 			}
 			finally {
 				s.close();
 			}
-			return "logged-mahasiswa";
+			ModelAndView mav = new ModelAndView("redirect:/home-mhs");
+			redir.addFlashAttribute("model", model);
+			return mav;
 		}
 	}
 	
 	@RequestMapping("/prosesLogin")
-	public String prosesLogin(@Valid @ModelAttribute("model") Login model, BindingResult bindres) {
+	public ModelAndView prosesLogin(@Valid @ModelAttribute("model") Login model, BindingResult bindres, RedirectAttributes redir) {
 		if(bindres.hasErrors()) {
-			return "login-page";
+			ModelAndView mav = new ModelAndView("/login");
+			return mav;
 		}
 		else {
 			if(model.getRole().equals("Mahasiswa")) {
@@ -77,13 +83,13 @@ public class Control {
 					//get student
 					Mahasiswa user = ses.get(Mahasiswa.class, model.getId() );
 					if(user.getPassword().equals(model.getPassword())) {
-						model.setNama(user.getNama());
-						model.setEmail(user.getEmail());
-						model.setNohp(user.getNohp());
-						return "logged-mahasiswa";
+						ModelAndView mav = new ModelAndView("redirect:/home-mhs");
+						redir.addFlashAttribute("model", user);
+						return mav;
 					}
 					else {
-						return "login-page";
+						ModelAndView mav = new ModelAndView("/login");
+						return mav;
 					}
 
 				}
@@ -103,13 +109,13 @@ public class Control {
 					//get student
 					Pustakawan user = ses.get(Pustakawan.class, model.getId() );
 					if(user.getPassword().equals(model.getPassword())) {
-						model.setNama(user.getNama());
-						model.setEmail(user.getEmail());
-						model.setNohp(user.getNohp());
-						return "logged-pustakawan";
+						ModelAndView mav = new ModelAndView("redirect:/home-ptk");
+						redir.addFlashAttribute("model", user);
+						return mav;
 					}
 					else {
-						return "login-page";
+						ModelAndView mav = new ModelAndView("/login");
+						return mav;
 					}
 
 				}
@@ -118,9 +124,21 @@ public class Control {
 				}
 			}
 			else {
-				return "login-page";
+				ModelAndView mav = new ModelAndView("/login");
+				return mav;
 			}
 			
 		}
+	}
+	@RequestMapping("/home-ptk")
+	public ModelAndView halamanPustakawan(@ModelAttribute("model") Pustakawan pustakawan) {
+		ModelAndView mav = new ModelAndView("logged-pustakawan");
+		return mav;
+	}
+	
+	@RequestMapping("/home-mhs")
+	public ModelAndView halamanMahasiswa(@ModelAttribute("model") Mahasiswa mahasiswa) {
+		ModelAndView mav = new ModelAndView("logged-mahasiswa");
+		return mav;
 	}
 }
