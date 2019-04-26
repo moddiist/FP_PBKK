@@ -1,8 +1,7 @@
 package rbtc.control;
 
-import rbtc.model.Mahasiswa;
-import rbtc.model.Pustakawan;
-import rbtc.model.Login;
+import rbtc.model.*;
+import java.util.List;
 import javax.validation.Valid;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 
 @Controller
@@ -132,6 +132,24 @@ public class Control {
 	}
 	@RequestMapping("/home-ptk")
 	public ModelAndView halamanPustakawan(@ModelAttribute("model") Pustakawan pustakawan) {
+		SessionFactory s = new Configuration()
+				.configure("hibernate.xml")
+				.addAnnotatedClass(Buku.class)
+				.buildSessionFactory();
+		Session ses = s.getCurrentSession();
+		
+		try {
+			ses.beginTransaction();
+			
+			//get student
+			List<Buku> book = ses.createQuery("from Buku").list();
+			//commit transaction
+			ses.getTransaction().commit();
+		}
+		finally {
+			s.close();
+		}
+		
 		ModelAndView mav = new ModelAndView("logged-pustakawan");
 		return mav;
 	}
