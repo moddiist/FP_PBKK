@@ -155,7 +155,31 @@ public class Control {
 		
 		return mav;
 	}
-	
+	@RequestMapping("/daftarmhs-ptk")
+	public ModelAndView daftarmhsPustakawan(@ModelAttribute("model") Pustakawan pustakawan, Model model) {
+		SessionFactory s = new Configuration()
+				.configure("hibernate.xml")
+				.addAnnotatedClass(Mahasiswa.class)
+				.buildSessionFactory();
+		Session ses = s.getCurrentSession();
+		ModelAndView mav = new ModelAndView("daftarmhs-pustakawan");
+		try {
+			ses.beginTransaction();
+			
+			//get mhs
+			List<Mahasiswa> listmahasiswa = ses.createQuery("from Mahasiswa").list();
+			//commit transaction
+			
+			ses.getTransaction().commit();
+			
+			mav.addObject("mahasiswa", listmahasiswa);
+		}
+		finally {
+			s.close();
+		}
+		
+		return mav;
+	}
 	@RequestMapping("/home-mhs")
 	public ModelAndView halamanMahasiswa(@ModelAttribute("model") Mahasiswa mahasiswa) {
 		SessionFactory s = new Configuration()
@@ -181,5 +205,6 @@ public class Control {
 		
 		return mav;
 	}
+
 	
 }
