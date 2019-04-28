@@ -9,7 +9,10 @@
 </head>
 <body>
 <h1>HALO MAHASISWA, ${model.nama }</h1>
-<a href="/profil-mhs/">Ubah Data</a>
+<!-- <c:url var="updateLink" value="/RBTCAssistant/profil-mhs">
+	<c:param name="mhsNRP" value="${model.nrp }"/>
+		
+<a href="${updateLink }">Ubah Data</a> -->
 <a href="/RBTCAssistant/">Logout</a><br /><br />
 
 <h1>Daftar Buku</h1>

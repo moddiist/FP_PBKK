@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -207,14 +208,13 @@ public class Control {
 	}
 	
 	@RequestMapping("/profil-mhs")
-	public ModelAndView editMahasiswa(@ModelAttribute("model") Mahasiswa mahasiswa) {
-		SessionFactory s = new Configuration()
-				.configure("hibernate.xml")
-				.addAnnotatedClass(Mahasiswa.class)
-				.buildSessionFactory();
-		Session ses = s.getCurrentSession();
-		ModelAndView mav = new ModelAndView("data-mahasiswa");
+	public String editMahasiswa(@RequestParam("mhsNRP") int nrp, Model theModel) {
 		
+		Mahasiswa iniMahasiswa = editMahasiswa.getMahasiswa(nrp);
+		
+		theModel.addAtribute("mahasiswa", iniMahasiswa);
+		
+		return "data-mahasiswa";
 	}
 	
 	@RequestMapping("/tambah-ptk")
