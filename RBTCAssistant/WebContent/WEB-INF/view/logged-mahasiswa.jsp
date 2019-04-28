@@ -15,7 +15,6 @@
 <h1>Daftar Buku</h1>
 <table style="width:100%">
 	<tr>
-		<th>ISBN</th>
 	    <th>Judul</th>
 	    <th>Pengarang</th> 
 	    <th>Tahun Terbit</th>
@@ -23,15 +22,16 @@
 	    <th>Status</th>
 	    <th>Action</th>
  	 </tr>
- 	 <tr>
- 	 </tr>
+ 	 <c:forEach var="value" items="${buku }"> 
+	 	 <tr>
+	 	 	<th>${value.judul }</th>
+		    <th>${value.pengarang }</th>
+		    <th>${value.tahun_terbit }</th> 
+		    <th>${value.edisi }</th>
+		    <th>${value.status }</th>
+		    <th><a href="#">Hapus</a> <a href="#">Pinjam</a></th>
+	 	 </tr>
+	 </c:forEach>
 </table>
-
-		<ul>
-			<c:forEach var="listValue" items="${book}">
-				<li>${listValue}</li>
-			</c:forEach>
-		</ul>
-
 </body>
 </html>

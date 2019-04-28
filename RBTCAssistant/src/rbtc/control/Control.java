@@ -131,32 +131,55 @@ public class Control {
 		}
 	}
 	@RequestMapping("/home-ptk")
-	public ModelAndView halamanPustakawan(@ModelAttribute("model") Pustakawan pustakawan) {
+	public ModelAndView halamanPustakawan(@ModelAttribute("model") Pustakawan pustakawan, Model model) {
 		SessionFactory s = new Configuration()
 				.configure("hibernate.xml")
 				.addAnnotatedClass(Buku.class)
 				.buildSessionFactory();
 		Session ses = s.getCurrentSession();
-		
+		ModelAndView mav = new ModelAndView("logged-pustakawan");
 		try {
 			ses.beginTransaction();
 			
 			//get student
-			List<Buku> book = ses.createQuery("from Buku").list();
+			List<Buku> listbuku = ses.createQuery("from Buku").list();
 			//commit transaction
+			
 			ses.getTransaction().commit();
+			
+			mav.addObject("buku", listbuku);
 		}
 		finally {
 			s.close();
 		}
 		
-		ModelAndView mav = new ModelAndView("logged-pustakawan");
 		return mav;
 	}
 	
 	@RequestMapping("/home-mhs")
 	public ModelAndView halamanMahasiswa(@ModelAttribute("model") Mahasiswa mahasiswa) {
+		SessionFactory s = new Configuration()
+				.configure("hibernate.xml")
+				.addAnnotatedClass(Buku.class)
+				.buildSessionFactory();
+		Session ses = s.getCurrentSession();
 		ModelAndView mav = new ModelAndView("logged-mahasiswa");
+		try {
+			ses.beginTransaction();
+			
+			//get student
+			List<Buku> listbuku = ses.createQuery("from Buku").list();
+			//commit transaction
+			
+			ses.getTransaction().commit();
+			
+			mav.addObject("buku", listbuku);
+		}
+		finally {
+			s.close();
+		}
+		
 		return mav;
 	}
+	
 }
