@@ -205,6 +205,44 @@ public class Control {
 		
 		return mav;
 	}
-
+	
+	@RequestMapping("/profil-mhs")
+	public ModelAndView editMahasiswa(@ModelAttribute("model") Mahasiswa mahasiswa) {
+		SessionFactory s = new Configuration()
+				.configure("hibernate.xml")
+				.addAnnotatedClass(Mahasiswa.class)
+				.buildSessionFactory();
+		Session ses = s.getCurrentSession();
+		ModelAndView mav = new ModelAndView("data-mahasiswa");
+		
+	}
+	
+	@RequestMapping("/tambah-ptk")
+	public ModelAndView tambahPustakwan(@Valid @ModelAttribute("model") Pustakawan model, BindingResult bindres, RedirectAttributes redir) {
+		SessionFactory s = new Configuration()
+				.configure("hibernate.xml")
+				.addAnnotatedClass(Pustakawan.class)
+				.buildSessionFactory();
+		Session ses = s.getCurrentSession();
+		
+		if(bindres.hasErrors()) {
+			ModelAndView mav = new ModelAndView("tambah-ptk");
+			return mav;
+		}
+		else {
+			try {
+				//gunakan session disini
+				ses.beginTransaction();
+				ses.save(model);
+				ses.getTransaction().commit();
+			}
+			finally {
+				s.close();
+			}
+			ModelAndView mav = new ModelAndView("redirect:/tambah-ptk");
+			redir.addFlashAttribute("model", model);
+			return mav;
+		}
+	}
 	
 }

@@ -11,7 +11,7 @@
 <body>
 <h1>HALO PUSTAKAWAN, ${model.nama }</h1>
 <a href="#">Ubah Data</a>
-<a href="#">Tambah Pustakawan</a>
+<a href="/RBTCAssistant/tambah-ptk">Tambah Pustakawan</a>
 <a href="#">Tambah Buku</a>
 <a href="/RBTCAssistant/daftarmhs-ptk">Daftar Mahasiswa</a>
 <a href="/RBTCAssistant/">Logout</a><br /><br />
