@@ -207,15 +207,15 @@ public class Control {
 		return mav;
 	}
 	
-	@RequestMapping("/profil-mhs")
-	public String editMahasiswa(@RequestParam("mhsNRP") int nrp, Model theModel) {
-		
-		Mahasiswa iniMahasiswa = editMahasiswa.getMahasiswa(nrp);
-		
-		theModel.addAtribute("mahasiswa", iniMahasiswa);
-		
-		return "data-mahasiswa";
-	}
+//	@RequestMapping("/profil-mhs")
+//	public String editMahasiswa(@RequestParam("mhsNRP") int nrp, Model theModel) {
+//		
+//		Mahasiswa iniMahasiswa = editMahasiswa.getMahasiswa(nrp);
+//		
+//		theModel.addAtribute("mahasiswa", iniMahasiswa);
+//		
+//		return "data-mahasiswa";
+//	}
 	
 	@RequestMapping("/tambah-ptk")
 	public ModelAndView tambahPustakwan(@Valid @ModelAttribute("model") Pustakawan model, BindingResult bindres, RedirectAttributes redir) {
