@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -218,31 +218,13 @@ public class Control {
 //	}
 	
 	@RequestMapping("/tambah-ptk")
-	public ModelAndView tambahPustakwan(@Valid @ModelAttribute("model") Pustakawan model, BindingResult bindres, RedirectAttributes redir) {
-		SessionFactory s = new Configuration()
-				.configure("hibernate.xml")
-				.addAnnotatedClass(Pustakawan.class)
-				.buildSessionFactory();
-		Session ses = s.getCurrentSession();
+	public ModelAndView halamanTambahPustakwan(Model theModel) {
 		
-		if(bindres.hasErrors()) {
-			ModelAndView mav = new ModelAndView("tambah-ptk");
-			return mav;
-		}
-		else {
-			try {
-				//gunakan session disini
-				ses.beginTransaction();
-				ses.save(model);
-				ses.getTransaction().commit();
-			}
-			finally {
-				s.close();
-			}
-			ModelAndView mav = new ModelAndView("redirect:/tambah-ptk");
-			redir.addFlashAttribute("model", model);
-			return mav;
-		}
+		Mahasiswa iniMahasiswa = new Mahasiswa();
+		
+		theModel.addAttribute("mahasiswa", iniMahasiswa);
+		
+		return "tmbh-pustakawan";
 	}
 	
 }

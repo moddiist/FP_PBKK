@@ -16,6 +16,10 @@
 <a href="/RBTCAssistant/daftarmhs-ptk">Daftar Mahasiswa</a>
 <a href="/RBTCAssistant/">Logout</a><br /><br />
 
+<input type="button" value="Tambah Pustakawan"
+onclick="window.location.href='halamanTambahPustakawan'; return false"
+class="add-button"/>
+
 <h1>Daftar Buku</h1>
 <table style="width:100%">
 	<tr>
