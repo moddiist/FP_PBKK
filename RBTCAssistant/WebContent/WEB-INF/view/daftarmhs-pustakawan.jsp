@@ -11,33 +11,27 @@
 <body>
 <h1>HALO PUSTAKAWAN, ${model.nama }</h1>
 <a href="#">Ubah Data</a>
-<a href="/RBTCAssistant/tambah-ptk">Tambah Pustakawan</a>
+<a href="#">Tambah Pustakawan</a>
 <a href="#">Tambah Buku</a>
 <a href="/RBTCAssistant/daftarmhs-ptk">Daftar Mahasiswa</a>
 <a href="/RBTCAssistant/">Logout</a><br /><br />
 
-<input type="button" value="Tambah Pustakawan"
-onclick="window.location.href='halamanTambahPustakawan'; return false"
-class="add-button"/>
-
-<h1>Daftar Buku</h1>
+<h1>Daftar Mahasiswa</h1>
 <table style="width:100%">
 	<tr>
-	    <th>Judul</th>
-	    <th>Pengarang</th> 
-	    <th>Tahun Terbit</th>
-	    <th>Edisi</th>
-	    <th>Status</th>
+	    <th>NRP</th>
+	    <th>Nama</th> 
+	    <th>Email</th>
+	    <th>No. HP</th>
 	    <th>Action</th>
  	 </tr>
- 	 <c:forEach var="value" items="${buku }"> 
+ 	 <c:forEach var="value" items="${mahasiswa }"> 
 	 	 <tr>
-	 	 	<th>${value.judul }</th>
-		    <th>${value.pengarang }</th>
-		    <th>${value.tahun_terbit }</th> 
-		    <th>${value.edisi }</th>
-		    <th>${value.status }</th>
-		    <th><a href="#">Hapus</a> <a href="updatebuku/?id=${value.isbn}&id_p=${model.nip } }">Ubah</a></th>
+	 	 	<th>${value.nrp }</th>
+		    <th>${value.nama }</th>
+		    <th>${value.email }</th> 
+		    <th>${value.no_hp }</th>
+		    <th><a href="#">Hapus</a></th>
 	 	 </tr>
 	 </c:forEach>
 </table>

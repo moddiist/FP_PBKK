@@ -11,6 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -155,7 +159,31 @@ public class Control {
 		
 		return mav;
 	}
-	
+	@RequestMapping("/daftarmhs-ptk")
+	public ModelAndView daftarmhsPustakawan(@ModelAttribute("model") Pustakawan pustakawan, Model model) {
+		SessionFactory s = new Configuration()
+				.configure("hibernate.xml")
+				.addAnnotatedClass(Mahasiswa.class)
+				.buildSessionFactory();
+		Session ses = s.getCurrentSession();
+		ModelAndView mav = new ModelAndView("daftarmhs-pustakawan");
+		try {
+			ses.beginTransaction();
+			
+			//get mhs
+			List<Mahasiswa> listmahasiswa = ses.createQuery("from Mahasiswa").list();
+			//commit transaction
+			
+			ses.getTransaction().commit();
+			
+			mav.addObject("mahasiswa", listmahasiswa);
+		}
+		finally {
+			s.close();
+		}
+		
+		return mav;
+	}
 	@RequestMapping("/home-mhs")
 	public ModelAndView halamanMahasiswa(@ModelAttribute("model") Mahasiswa mahasiswa) {
 		SessionFactory s = new Configuration()
@@ -180,6 +208,26 @@ public class Control {
 		}
 		
 		return mav;
+	}
+	
+//	@RequestMapping("/profil-mhs")
+//	public String editMahasiswa(@RequestParam("mhsNRP") int nrp, Model theModel) {
+//		
+//		Mahasiswa iniMahasiswa = editMahasiswa.getMahasiswa(nrp);
+//		
+//		theModel.addAtribute("mahasiswa", iniMahasiswa);
+//		
+//		return "data-mahasiswa";
+//	}
+	
+	@RequestMapping("/tambah-ptk")
+	public ModelAndView halamanTambahPustakwan(Model theModel) {
+		
+		Mahasiswa iniMahasiswa = new Mahasiswa();
+		
+		theModel.addAttribute("mahasiswa", iniMahasiswa);
+		
+		return "tmbh-pustakawan";
 	}
 	
 }
