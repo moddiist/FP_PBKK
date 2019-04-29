@@ -159,23 +159,27 @@ public class Control {
 		
 		return mav;
 	}
-	@RequestMapping("/daftarmhs-ptk")
-	public ModelAndView daftarmhsPustakawan(@ModelAttribute("model") Pustakawan pustakawan, Model model) {
-		SessionFactory s = new Configuration()
-				.configure("hibernate.xml")
-				.addAnnotatedClass(Mahasiswa.class)
-				.buildSessionFactory();
-		Session ses = s.getCurrentSession();
+	@RequestMapping(name="/daftarmhs-ptk", method=RequestMethod.GET)
+	public ModelAndView daftarmhsPustakawan(@RequestParam("id") String nip, Model model) {
+		//buat ngambil model pustakawannya
+		SessionFactory factory = new Configuration().configure("hibernate.xml").addAnnotatedClass(Pustakawan.class).buildSessionFactory();
+		Session session = factory.getCurrentSession();
 		ModelAndView mav = new ModelAndView("daftarmhs-pustakawan");
 		try {
+			session.beginTransaction();
+			Pustakawan user = session.get(Pustakawan.class, nip );
+			mav.addObject("model", user);
+		}
+		finally {
+			factory.close();
+		}
+		//buat ngambil mahasiswa
+		SessionFactory s = new Configuration().configure("hibernate.xml").addAnnotatedClass(Mahasiswa.class).buildSessionFactory();
+		Session ses = s.getCurrentSession();
+		try {
 			ses.beginTransaction();
-			
-			//get mhs
 			List<Mahasiswa> listmahasiswa = ses.createQuery("from Mahasiswa").list();
-			//commit transaction
-			
 			ses.getTransaction().commit();
-			
 			mav.addObject("mahasiswa", listmahasiswa);
 		}
 		finally {
@@ -221,7 +225,7 @@ public class Control {
 //	}
 	
 	@RequestMapping("/tambah-ptk")
-	public ModelAndView halamanTambahPustakwan(Model theModel) {
+	public String halamanTambahPustakwan(Model theModel) {
 		
 		Mahasiswa iniMahasiswa = new Mahasiswa();
 		

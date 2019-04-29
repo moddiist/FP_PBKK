@@ -13,7 +13,7 @@
 <a href="#">Ubah Data</a>
 <a href="#">Tambah Pustakawan</a>
 <a href="#">Tambah Buku</a>
-<a href="/RBTCAssistant/daftarmhs-ptk">Daftar Mahasiswa</a>
+<a href="/RBTCAssistant/daftarmhs-ptk/?id=${model.nip }">Daftar Mahasiswa</a>
 <a href="/RBTCAssistant/">Logout</a><br /><br />
 
 <h1>Daftar Mahasiswa</h1>
@@ -30,7 +30,7 @@
 	 	 	<th>${value.nrp }</th>
 		    <th>${value.nama }</th>
 		    <th>${value.email }</th> 
-		    <th>${value.no_hp }</th>
+		    <th>${value.nohp }</th>
 		    <th><a href="#">Hapus</a></th>
 	 	 </tr>
 	 </c:forEach>

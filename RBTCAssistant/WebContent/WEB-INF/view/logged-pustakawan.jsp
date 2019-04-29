@@ -13,7 +13,7 @@
 <a href="#">Ubah Data</a>
 <a href="/RBTCAssistant/tambah-ptk">Tambah Pustakawan</a>
 <a href="#">Tambah Buku</a>
-<a href="/RBTCAssistant/daftarmhs-ptk">Daftar Mahasiswa</a>
+<a href="/RBTCAssistant/daftarmhs-ptk/?id=${model.nip }">Daftar Mahasiswa</a>
 <a href="/RBTCAssistant/">Logout</a><br /><br />
 
 <input type="button" value="Tambah Pustakawan"
