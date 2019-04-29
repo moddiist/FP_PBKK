@@ -159,30 +159,40 @@ public class Control {
 		
 		return mav;
 	}
-	@RequestMapping("/daftarmhs-ptk")
-	public ModelAndView daftarmhsPustakawan(@ModelAttribute("model") Pustakawan pustakawan, Model model) {
-		SessionFactory s = new Configuration()
-				.configure("hibernate.xml")
-				.addAnnotatedClass(Mahasiswa.class)
-				.buildSessionFactory();
-		Session ses = s.getCurrentSession();
-		ModelAndView mav = new ModelAndView("daftarmhs-pustakawan");
-		try {
-			ses.beginTransaction();
-			
-			//get mhs
-			List<Mahasiswa> listmahasiswa = ses.createQuery("from Mahasiswa").list();
-			//commit transaction
-			
-			ses.getTransaction().commit();
-			
-			mav.addObject("mahasiswa", listmahasiswa);
-		}
-		finally {
-			s.close();
-		}
+	
+	@RequestMapping(name = "/daftarmhs-ptk", method = RequestMethod.GET)
+	public ModelAndView daftarmhsPustakawan(Model model, @RequestParam("id") String nip) {
 		
-		return mav;
+			//ngambil data pustakawannya
+			SessionFactory factory = new Configuration().configure("hibernate.xml").addAnnotatedClass(Pustakawan.class).buildSessionFactory();
+			Session session = factory.getCurrentSession();
+			ModelAndView mav = new ModelAndView("daftarmhs-pustakawan");
+			try {
+				session.beginTransaction();
+				
+				//get student
+				Pustakawan user = session.get(Pustakawan.class, nip );
+				mav.addObject("model", user);
+			}
+			finally {
+				session.close();
+			}
+			//ngambil mahasiswanya 
+			SessionFactory s = new Configuration().configure("hibernate.xml").addAnnotatedClass(Mahasiswa.class).buildSessionFactory();
+			Session ses = s.getCurrentSession();
+			try {
+				ses.beginTransaction();
+				List<Mahasiswa> listmahasiswa = ses.createQuery("from Mahasiswa").list();
+				ses.getTransaction().commit();
+				mav.addObject("mahasiswa", listmahasiswa);
+			}
+			finally {
+				s.close();
+			}
+			
+			return mav;
+		
+		
 	}
 	@RequestMapping("/home-mhs")
 	public ModelAndView halamanMahasiswa(@ModelAttribute("model") Mahasiswa mahasiswa) {
@@ -221,7 +231,7 @@ public class Control {
 //	}
 	
 	@RequestMapping("/tambah-ptk")
-	public ModelAndView halamanTambahPustakwan(Model theModel) {
+	public String halamanTambahPustakwan(Model theModel) {
 		
 		Mahasiswa iniMahasiswa = new Mahasiswa();
 		
