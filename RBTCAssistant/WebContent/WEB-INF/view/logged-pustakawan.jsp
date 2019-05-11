@@ -9,12 +9,12 @@
 <title>RBTCAssistant</title>
 </head>
 <body>
-<h1>HALO PUSTAKAWAN, ${model.nama }</h1>
+<h1>HALO PUSTAKAWAN, ${model.nama}</h1>
 <a href="#">Ubah Data</a>
-<a href="/RBTCAssistant/tambah-ptk">Tambah Pustakawan</a>
+<a href="/springmvc-hibernate-maven/ptk/tambah-ptk">Tambah Pustakawan</a>
 <a href="#">Tambah Buku</a>
-<a href="/RBTCAssistant/daftarmhs-ptk/?id=${model.nip }">Daftar Mahasiswa</a>
-<a href="/RBTCAssistant/">Logout</a><br /><br />
+<a href="daftarmhs-ptk">Daftar Mahasiswa</a>
+<a href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br />
 
 <input type="button" value="Tambah Pustakawan"
 onclick="window.location.href='halamanTambahPustakawan'; return false"

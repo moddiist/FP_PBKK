@@ -13,8 +13,8 @@
 <a href="#">Ubah Data</a>
 <a href="#">Tambah Pustakawan</a>
 <a href="#">Tambah Buku</a>
-<a href="/RBTCAssistant/daftarmhs-ptk/?id=${model.nip }">Daftar Mahasiswa</a>
-<a href="/RBTCAssistant/">Logout</a><br /><br />
+<a href="daftarmhs-ptk">Daftar Mahasiswa</a>
+<a href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br />
 
 <h1>Daftar Mahasiswa</h1>
 <table style="width:100%">

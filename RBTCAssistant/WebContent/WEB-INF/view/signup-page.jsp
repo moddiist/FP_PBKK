@@ -17,7 +17,7 @@
 	</div>
 	<div class="badan">
 		<div class="form-css">
-			<form:form action="prosesDaftar" method="POST" modelAttribute="model">
+			<form:form action="/springmvc-hibernate-maven/mhs/prosesDaftar" method="POST" modelAttribute="model">
 				Nama : <br />
 				<form:input path="nama"/> <br /><br />
 				NRP : <br />

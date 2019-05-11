@@ -10,7 +10,7 @@
 <body>
 <h1>HALO MAHASISWA, ${model.nama }</h1>
 <a href="#">Ubah Data</a>
-<a href="/RBTCAssistant/">Logout</a><br /><br />
+<a href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br />
 
 <h1>Daftar Buku</h1>
 <table style="width:100%">

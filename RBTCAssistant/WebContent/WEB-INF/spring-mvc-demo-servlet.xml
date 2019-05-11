@@ -71,8 +71,7 @@
 
 
 	<!-- Resources -->
-	<mvc:resources mapping="/resources/**"
-		location="/resources/" />
+	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 
 </beans>
 
