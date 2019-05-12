@@ -7,25 +7,34 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import rbtc.model.Pustakawan;
+import rbtc.model.Buku;
 
 @Repository
-public class PustakawanDAOImpl implements PustakawanDAO {
-	
+public class BukuDAOImpl implements BukuDAO {
+
 	@Autowired
-	SessionFactory s;
+	private SessionFactory s;
 	
 	@Transactional
 	@Override
-	public void tambahPtk(Pustakawan ptk) {
+	public void tambahBuku(Buku buku) {
 		Session session = s.getCurrentSession();
-		session.save(ptk);
+		session.save(buku);
 	}
 	
 	@Transactional
 	@Override
-	public void editPtk(Pustakawan ptk) {
+	public Buku getBuku(String isbn) {
 		Session session = s.getCurrentSession();
-		session.update(ptk);
+		Buku buku = session.get(Buku.class, isbn);
+		return buku;
 	}
+	
+	@Transactional
+	@Override
+	public void deleteBuku(Buku buku) {
+		Session session = s.getCurrentSession();
+		session.delete(buku);
+	}
+
 }

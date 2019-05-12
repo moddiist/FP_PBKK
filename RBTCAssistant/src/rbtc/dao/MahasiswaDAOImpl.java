@@ -7,25 +7,33 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import rbtc.model.Pustakawan;
+import rbtc.model.Mahasiswa;
 
 @Repository
-public class PustakawanDAOImpl implements PustakawanDAO {
-	
+public class MahasiswaDAOImpl implements MahasiswaDAO {
+
 	@Autowired
-	SessionFactory s;
+	private SessionFactory s;
 	
 	@Transactional
 	@Override
-	public void tambahPtk(Pustakawan ptk) {
+	public void tambahMhs(Mahasiswa mhs) {
 		Session session = s.getCurrentSession();
-		session.save(ptk);
+		session.save(mhs);
+	}
+
+	@Transactional
+	@Override
+	public Mahasiswa getMhs(String nrp) {
+		Session session = s.getCurrentSession();
+		Mahasiswa mhs = session.get(Mahasiswa.class, nrp);
+		return mhs;
 	}
 	
 	@Transactional
 	@Override
-	public void editPtk(Pustakawan ptk) {
+	public void deleteMhs(Mahasiswa mhs) {
 		Session session = s.getCurrentSession();
-		session.update(ptk);
+		session.delete(mhs);
 	}
 }

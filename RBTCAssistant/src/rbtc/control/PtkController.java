@@ -28,7 +28,8 @@ import rbtc.model.Pustakawan;
 @RequestMapping("ptk")
 @SessionAttributes("model")
 public class PtkController {
-	
+	@Autowired
+	private PustakawanDAO dao;
 	
 	@RequestMapping("/home-ptk")
 	public ModelAndView halamanPustakawan() {
@@ -87,23 +88,32 @@ public class PtkController {
 	//INI BUAT NAMBAH PUSTAKAWAN LAIN
 	@RequestMapping("/daftarPustakawan")
 	public ModelAndView daftarBaruPtk(@Valid @ModelAttribute("ptk") Pustakawan ptk, BindingResult bindres) {
-		SessionFactory s = new Configuration()
-				.configure("hibernate.xml")
-				.addAnnotatedClass(Buku.class)
-				.buildSessionFactory();
-		Session ses = s.getCurrentSession();
 		if(bindres.hasErrors()) {
 			ModelAndView mav = new ModelAndView("tambah-ptk");
 			return mav;
 		}
 		else {
-			ses.beginTransaction();
-			ses.save(ptk);
-			ses.getTransaction().commit();
+			dao.tambahPtk(ptk);
 			ModelAndView mav = new ModelAndView("redirect:/ptk/home-ptk");
 			return mav;
 		}
 	}
 	
+	//INI BUAT NGEDIT DATA PUSTAKAWAN
+	@RequestMapping("/editPtk")
+	public String editPustakawanPage() {
+		return "editdata-ptk";
+	}
+	
+	@RequestMapping("/editDb")
+	public String editPtk(@Valid @ModelAttribute("model") Pustakawan model, BindingResult bind) {
+		if(bind.hasErrors()) {
+			return "redirect:/ptk/editPtk";
+		}
+		else {
+			dao.editPtk(model);
+			return "redirect:/ptk/home-ptk";
+		}
+	}
 	
 }

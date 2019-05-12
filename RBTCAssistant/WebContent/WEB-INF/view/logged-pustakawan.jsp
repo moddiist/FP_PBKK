@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>HALO PUSTAKAWAN, ${model.nama}</h1>
-<a href="#">Ubah Data</a>
+<a href="editPtk">Ubah Data</a>
 <a href="tambah-ptk">Tambah Pustakawan</a>
 <a href="/springmvc-hibernate-maven/buku/tambahBuku">Tambah Buku</a>
 <a href="daftarmhs-ptk">Daftar Mahasiswa</a>
@@ -33,7 +33,7 @@
 		    <th>${value.tahun_terbit }</th> 
 		    <th>${value.edisi }</th>
 		    <th>${value.status }</th>
-		    <th><a href="#">Hapus</a> <a href="updatebuku/?id=${value.isbn}&id_p=${model.nip } }">Ubah</a></th>
+		    <th><a href="/springmvc-hibernate-maven/buku/deleteBuku?id=${value.isbn }">Hapus</a> <a href="#">Ubah Status</a></th>
 	 	 </tr>
 	 </c:forEach>
 </table>

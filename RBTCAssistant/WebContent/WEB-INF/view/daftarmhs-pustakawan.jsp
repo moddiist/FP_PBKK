@@ -11,10 +11,6 @@
 <body>
 <h1>HALO PUSTAKAWAN, ${model.nama }</h1>
 <a href="home-ptk">Home</a>
-<a href="#">Ubah Data</a>
-<a href="#">Tambah Pustakawan</a>
-<a href="#">Tambah Buku</a>
-<a href="daftarmhs-ptk">Daftar Mahasiswa</a>
 <a href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br />
 
 <h1>Daftar Mahasiswa</h1>
@@ -32,7 +28,7 @@
 		    <th>${value.nama }</th>
 		    <th>${value.email }</th> 
 		    <th>${value.nohp }</th>
-		    <th><a href="#">Hapus</a></th>
+		    <th><a href="/springmvc-hibernate-maven/mhs/deleteMhs?id=${value.nrp }">Hapus</a></th>
 	 	 </tr>
 	 </c:forEach>
 </table>
