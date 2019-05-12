@@ -11,14 +11,10 @@
 <body>
 <h1>HALO PUSTAKAWAN, ${model.nama}</h1>
 <a href="#">Ubah Data</a>
-<a href="/springmvc-hibernate-maven/ptk/tambah-ptk">Tambah Pustakawan</a>
-<a href="#">Tambah Buku</a>
+<a href="tambah-ptk">Tambah Pustakawan</a>
+<a href="/springmvc-hibernate-maven/buku/tambahBuku">Tambah Buku</a>
 <a href="daftarmhs-ptk">Daftar Mahasiswa</a>
 <a href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br />
-
-<input type="button" value="Tambah Pustakawan"
-onclick="window.location.href='halamanTambahPustakawan'; return false"
-class="add-button"/>
 
 <h1>Daftar Buku</h1>
 <table style="width:100%">

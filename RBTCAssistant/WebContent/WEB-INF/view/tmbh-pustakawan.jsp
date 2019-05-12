@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,18 +9,15 @@
 </head>
 <body>
 <h1>Tambah Pustakwan</h1>
-<a href="#">Ubah Data</a>
-<a href="/RBTCAssistant/tambah-ptk">Tambah Pustakawan</a>
-<a href="#">Tambah Buku</a>
-<a href="/RBTCAssistant/daftarmhs-ptk">Daftar Mahasiswa</a>
-<a href="/RBTCAssistant/">Logout</a><br /><br />
+<a href="/springmvc-hibernate-maven/ptk/home-ptk">Home</a>
+<a href="/springmvc-hibernate-maven/RBTCAssistant/">Logout</a><br /><br />
 <div class="besar">
 	<div class="header">
 		<div class="logo">RBTCAssistant</div>
 	</div>
 	<div class="badan">
 		<div class="form-css">
-			<form:form action="daftarPustakawan" method="POST" modelAttribute="model">
+			<form:form action="daftarPustakawan" method="POST" modelAttribute="ptk">
 				Nama : <br />
 				<form:input path="nama"/> <br /><br />
 				NIP : <br />

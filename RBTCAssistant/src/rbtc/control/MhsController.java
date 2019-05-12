@@ -25,7 +25,7 @@ import rbtc.model.Mahasiswa;
 @SessionAttributes("model")
 public class MhsController {
 	@RequestMapping("/prosesDaftar")
-	public ModelAndView daftarBaruMhs(@Valid @ModelAttribute("model") Mahasiswa model, BindingResult bindres, RedirectAttributes redir) {
+	public ModelAndView daftarBaruMhs(@Valid @ModelAttribute("model") Mahasiswa model, BindingResult bindres) {
 		SessionFactory s = new Configuration()
 				.configure("hibernate.xml")
 				.addAnnotatedClass(Mahasiswa.class)

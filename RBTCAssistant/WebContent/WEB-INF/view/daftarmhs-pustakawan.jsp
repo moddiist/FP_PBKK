@@ -10,6 +10,7 @@
 </head>
 <body>
 <h1>HALO PUSTAKAWAN, ${model.nama }</h1>
+<a href="home-ptk">Home</a>
 <a href="#">Ubah Data</a>
 <a href="#">Tambah Pustakawan</a>
 <a href="#">Tambah Buku</a>
