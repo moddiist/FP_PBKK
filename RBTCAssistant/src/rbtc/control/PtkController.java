@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import rbtc.dao.BukuDAO;
+import rbtc.dao.MahasiswaDAO;
 import rbtc.dao.PustakawanDAO;
 import rbtc.model.Buku;
 import rbtc.model.Mahasiswa;
@@ -31,29 +33,17 @@ public class PtkController {
 	@Autowired
 	private PustakawanDAO dao;
 	
+	@Autowired
+	private MahasiswaDAO mhsdao;
+	
+	@Autowired
+	private BukuDAO bukudao;
+	
 	@RequestMapping("/home-ptk")
 	public ModelAndView halamanPustakawan() {
-		SessionFactory s = new Configuration()
-				.configure("hibernate.xml")
-				.addAnnotatedClass(Buku.class)
-				.buildSessionFactory();
-		Session ses = s.getCurrentSession();
 		ModelAndView mav = new ModelAndView("logged-pustakawan");
-		try {
-			ses.beginTransaction();
-			
-			//get student
-			List<Buku> listbuku = ses.createQuery("from Buku").list();
-			//commit transaction
-			
-			ses.getTransaction().commit();
-			
-			mav.addObject("buku", listbuku);
-		}
-		finally {
-			s.close();
-		}
-		
+		List<Buku> buku = bukudao.getAllBuku();
+		mav.addObject("buku", buku);
 		return mav;
 	}
 	
@@ -61,20 +51,8 @@ public class PtkController {
 	@RequestMapping("/daftarmhs-ptk")
 	public ModelAndView daftarmhsPustakawan() {
 		ModelAndView mav = new ModelAndView("daftarmhs-pustakawan");
-		
-		//buat ngambil mahasiswa
-		SessionFactory s = new Configuration().configure("hibernate.xml").addAnnotatedClass(Mahasiswa.class).buildSessionFactory();
-		Session ses = s.getCurrentSession();
-		try {
-			ses.beginTransaction();
-			List<Mahasiswa> listmahasiswa = ses.createQuery("from Mahasiswa").list();
-			ses.getTransaction().commit();
-			mav.addObject("mahasiswa", listmahasiswa);
-		}
-		finally {
-			s.close();
-		}
-		
+		List<Mahasiswa> mhs = mhsdao.getAllMhs();
+		mav.addObject("mahasiswa", mhs);
 		return mav;
 	}
 	

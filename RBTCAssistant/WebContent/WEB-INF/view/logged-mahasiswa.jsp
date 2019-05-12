@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>HALO MAHASISWA, ${model.nama }</h1>
-<a href="#">Ubah Data</a>
+<a href="editMhs">Ubah Data</a>
 <a href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br />
 
 <h1>Daftar Buku</h1>
@@ -29,7 +29,7 @@
 		    <th>${value.tahun_terbit }</th> 
 		    <th>${value.edisi }</th>
 		    <th>${value.status }</th>
-		    <th><a href="#">Hapus</a> <a href="#">Pinjam</a></th>
+		    <th><a href="#">Pinjam</a></th>
 	 	 </tr>
 	 </c:forEach>
 </table>

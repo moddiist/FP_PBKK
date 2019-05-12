@@ -1,11 +1,14 @@
 package rbtc.control;
 
+import rbtc.dao.MahasiswaDAO;
+import rbtc.dao.PustakawanDAO;
 import rbtc.model.*;
 import java.util.List;
 import javax.validation.Valid;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -28,6 +31,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @SessionAttributes("model")
 public class Control {
 
+	@Autowired
+	private MahasiswaDAO mhsdao;
+	
+	@Autowired
+	private PustakawanDAO ptkdao;
+	
 	@RequestMapping("/")
 	public String mainPage() {
 		return "home-page";
@@ -47,16 +56,7 @@ public class Control {
 		}
 		else {
 			if(data.getRole().equals("Mahasiswa")) {
-				SessionFactory s = new Configuration()
-						.configure("hibernate.xml")
-						.addAnnotatedClass(Mahasiswa.class)
-						.buildSessionFactory();
-				Session ses = s.getCurrentSession();
-				try {
-					ses.beginTransaction();
-					
-					//get student
-					Mahasiswa user = ses.get(Mahasiswa.class, data.getId() );
+					Mahasiswa user = mhsdao.getMhs(data.getId());
 					if(user.getPassword().equals(data.getPassword())) {
 						ModelAndView mav = new ModelAndView("redirect:/mhs/home-mhs");
 						mav.addObject("model", user);
@@ -67,22 +67,10 @@ public class Control {
 						return mav;
 					}
 
-				}
-				finally {
-					s.close();
-				}
 			}
 			else if(data.getRole().equals("Pustakawan")){
-				SessionFactory s = new Configuration()
-						.configure("hibernate.xml")
-						.addAnnotatedClass(Pustakawan.class)
-						.buildSessionFactory();
-				Session ses = s.getCurrentSession();
-				try {
-					ses.beginTransaction();
-					
-					//get student
-					Pustakawan user = ses.get(Pustakawan.class, data.getId() );
+					//get ptk
+					Pustakawan user = ptkdao.getPtk(data.getId());
 					if(user.getPassword().equals(data.getPassword())) {
 						ModelAndView mav = new ModelAndView("redirect:/ptk/home-ptk");
 						mav.addObject("model", user);
@@ -92,11 +80,6 @@ public class Control {
 						ModelAndView mav = new ModelAndView("/RBTCAssistant/login");
 						return mav;
 					}
-
-				}
-				finally {
-					s.close();
-				}
 			}
 			else {
 				ModelAndView mav = new ModelAndView("/RBTCAssistant/login");

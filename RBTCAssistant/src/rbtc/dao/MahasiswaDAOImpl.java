@@ -1,5 +1,7 @@
 package rbtc.dao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -35,5 +37,20 @@ public class MahasiswaDAOImpl implements MahasiswaDAO {
 	public void deleteMhs(Mahasiswa mhs) {
 		Session session = s.getCurrentSession();
 		session.delete(mhs);
+	}
+	
+	@Transactional
+	@Override
+	public List<Mahasiswa> getAllMhs(){
+		Session session = s.getCurrentSession();
+		List<Mahasiswa> mhs = session.createQuery("from Mahasiswa").list();
+		return mhs;
+	}
+	
+	@Transactional
+	@Override
+	public void editMhs(Mahasiswa mhs) {
+		Session session = s.getCurrentSession();
+		session.update(mhs);
 	}
 }

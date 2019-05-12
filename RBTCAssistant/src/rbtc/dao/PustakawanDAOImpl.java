@@ -28,4 +28,12 @@ public class PustakawanDAOImpl implements PustakawanDAO {
 		Session session = s.getCurrentSession();
 		session.update(ptk);
 	}
+	
+	@Transactional
+	@Override
+	public Pustakawan getPtk(String nip) {
+		Session session = s.getCurrentSession();
+		Pustakawan ptk = session.get(Pustakawan.class, nip);
+		return ptk;
+	}
 }

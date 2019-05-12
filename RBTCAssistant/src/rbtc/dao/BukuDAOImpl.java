@@ -1,5 +1,7 @@
 package rbtc.dao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -37,4 +39,11 @@ public class BukuDAOImpl implements BukuDAO {
 		session.delete(buku);
 	}
 
+	@Transactional
+	@Override
+	public List<Buku> getAllBuku(){
+		Session session = s.getCurrentSession();
+		List<Buku> buku = session.createQuery("from Buku").list();
+		return buku;
+	}
 }

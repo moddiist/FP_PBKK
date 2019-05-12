@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import rbtc.dao.BukuDAO;
 import rbtc.dao.MahasiswaDAO;
 import rbtc.model.Buku;
 import rbtc.model.Login;
 import rbtc.model.Mahasiswa;
+import rbtc.model.Pustakawan;
 
 @Controller
 @RequestMapping("mhs")
@@ -31,6 +33,9 @@ public class MhsController {
 	
 	@Autowired
 	private MahasiswaDAO dao;
+	
+	@Autowired
+	private BukuDAO bukudao;
 	
 	@RequestMapping("/prosesDaftar")
 	public ModelAndView daftarBaruMhs(@Valid @ModelAttribute("model") Mahasiswa model, BindingResult bindres) {
@@ -48,27 +53,9 @@ public class MhsController {
 	
 	@RequestMapping("/home-mhs")
 	public ModelAndView halamanMahasiswa() {
-		SessionFactory s = new Configuration()
-				.configure("hibernate.xml")
-				.addAnnotatedClass(Buku.class)
-				.buildSessionFactory();
-		Session ses = s.getCurrentSession();
 		ModelAndView mav = new ModelAndView("logged-mahasiswa");
-		try {
-			ses.beginTransaction();
-			
-			//get student
-			List<Buku> listbuku = ses.createQuery("from Buku").list();
-			//commit transaction
-			
-			ses.getTransaction().commit();
-			
-			mav.addObject("buku", listbuku);
-		}
-		finally {
-			s.close();
-		}
-		
+		List<Buku> buku = bukudao.getAllBuku();
+		mav.addObject("buku", buku);
 		return mav;
 	}
 	
@@ -77,6 +64,22 @@ public class MhsController {
 		Mahasiswa mhs = dao.getMhs(nrp);
 		dao.deleteMhs(mhs);
 		return "redirect:/ptk/daftarmhs-ptk";
+	}
+	
+	@RequestMapping("/editMhs")
+	public String openEditData() {
+		return "editdata-mhs";
+	}
+	
+	@RequestMapping("/editDb")
+	public String editMhs(@Valid @ModelAttribute("model") Mahasiswa model, BindingResult bind) {
+		if(bind.hasErrors()) {
+			return "editMhs";
+		}
+		else {
+			dao.editMhs(model);
+			return "redirect:/mhs/home-mhs";
+		}
 	}
 	
 }
