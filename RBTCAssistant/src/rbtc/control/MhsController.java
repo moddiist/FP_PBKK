@@ -1,5 +1,9 @@
 package rbtc.control;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -21,7 +25,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import rbtc.dao.BukuDAO;
 import rbtc.dao.MahasiswaDAO;
+import rbtc.dao.PinjamDAO;
 import rbtc.model.Buku;
+import rbtc.model.Detail;
 import rbtc.model.Login;
 import rbtc.model.Mahasiswa;
 import rbtc.model.Pustakawan;
@@ -36,6 +42,9 @@ public class MhsController {
 	
 	@Autowired
 	private BukuDAO bukudao;
+	
+	@Autowired
+	private PinjamDAO pinjamdao;
 	
 	@RequestMapping("/prosesDaftar")
 	public ModelAndView daftarBaruMhs(@Valid @ModelAttribute("model") Mahasiswa model, BindingResult bindres) {
@@ -82,4 +91,14 @@ public class MhsController {
 		}
 	}
 	
+	@RequestMapping(value="peminjaman-mhs", method=RequestMethod.GET)
+	public ModelAndView pinjamPage(@RequestParam("id") String nrp) {
+		ModelAndView mav = new ModelAndView("peminjaman-mhs");
+		List<Detail> listnya = pinjamdao.getAllPinjamMhs(nrp);
+		mav.addObject("pinjam", listnya);
+		System.out.println(listnya);
+		return mav;
+	}
+	
 }
+;

@@ -10,6 +10,7 @@
 <body>
 <h1>HALO MAHASISWA, ${model.nama }</h1>
 <a href="editMhs">Ubah Data</a>
+<a href="peminjaman-mhs?id=${model.nrp }">Peminjaman</a>
 <a href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br />
 
 <h1>Daftar Buku</h1>
@@ -31,7 +32,7 @@
 		    <th>${value.status }</th>
 		    <th>
 		    <c:if test = "${value.status == 'Tersedia' }">
-		    	<a href="#">Pinjam</a>
+		    	<a href="/springmvc-hibernate-maven/pinjam/prosesPinjam?id=${value.isbn }&nrp=${model.nrp}">Pinjam</a>
 		    </c:if>
 		    <c:if test = "${value.status == 'Dipinjam' }">
 		    	<p>Tidak bisa dipinjam</p>
