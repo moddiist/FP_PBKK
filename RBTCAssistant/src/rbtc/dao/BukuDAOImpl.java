@@ -46,4 +46,11 @@ public class BukuDAOImpl implements BukuDAO {
 		List<Buku> buku = session.createQuery("from Buku").list();
 		return buku;
 	}
+	
+	@Transactional
+	@Override
+	public void editStatus(Buku buku) {
+		Session session = s.getCurrentSession();
+		session.update(buku);
+	}
 }

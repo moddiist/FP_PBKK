@@ -33,7 +33,7 @@
 		    <th>${value.tahun_terbit }</th> 
 		    <th>${value.edisi }</th>
 		    <th>${value.status }</th>
-		    <th><a href="/springmvc-hibernate-maven/buku/deleteBuku?id=${value.isbn }">Hapus</a> <a href="#">Ubah Status</a></th>
+		    <th><a href="/springmvc-hibernate-maven/buku/deleteBuku?id=${value.isbn }">Hapus</a> <a href="/springmvc-hibernate-maven/buku/editStatus?id=${value.isbn}">Ubah</a></th>
 	 	 </tr>
 	 </c:forEach>
 </table>

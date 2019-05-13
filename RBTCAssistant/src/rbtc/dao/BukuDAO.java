@@ -10,4 +10,5 @@ public interface BukuDAO {
 	public Buku getBuku (String isbn);
 	public void deleteBuku(Buku buku);
 	public List<Buku> getAllBuku();
+	public void editStatus(Buku buku);
 }

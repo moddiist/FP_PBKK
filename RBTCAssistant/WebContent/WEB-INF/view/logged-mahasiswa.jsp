@@ -29,7 +29,14 @@
 		    <th>${value.tahun_terbit }</th> 
 		    <th>${value.edisi }</th>
 		    <th>${value.status }</th>
-		    <th><a href="#">Pinjam</a></th>
+		    <th>
+		    <c:if test = "${value.status == 'Tersedia' }">
+		    	<a href="#">Pinjam</a>
+		    </c:if>
+		    <c:if test = "${value.status == 'Dipinjam' }">
+		    	<p>Tidak bisa dipinjam</p>
+		    </c:if>
+		    </th>
 	 	 </tr>
 	 </c:forEach>
 </table>

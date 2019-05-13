@@ -1,10 +1,6 @@
 package rbtc.control;
 
 import javax.validation.Valid;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import rbtc.dao.BukuDAO;
 import rbtc.model.Buku;
+import rbtc.model.Mahasiswa;
 import rbtc.model.Pustakawan;
 
 @Controller
@@ -53,4 +50,23 @@ public class BukuController {
 		dao.deleteBuku(hapuskan);
 		return "redirect:/ptk/home-ptk";
 	}
+	
+	@RequestMapping(value="/editStatus", method=RequestMethod.GET)
+	public String editStatusPage(Model buku, @RequestParam("id") String isbn) {
+		Buku bukunya = dao.getBuku(isbn);
+		buku.addAttribute("statusnya", bukunya);
+		return "editstatbuku-ptk";
+	}
+	
+	@RequestMapping("/ubahStat")
+	public String editStatBuku(@Valid @ModelAttribute("statusnya") Buku buku,BindingResult bindres) {
+		if(bindres.hasErrors()) {
+			return "editStatus";
+		}
+		else {
+			dao.editStatus(buku);
+			return "redirect:/ptk/home-ptk";
+		}
+	}
+	
 }
