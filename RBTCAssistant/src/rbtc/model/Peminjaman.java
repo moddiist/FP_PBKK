@@ -31,17 +31,34 @@ public class Peminjaman {
 	@Column(name="denda")
 	private int denda;
 	
-	public Peminjaman() {}
+	@Column(name="judul_buku")
+	private String judulbuku;
 	
-	public Peminjaman(int id_peminjaman, String isbn, String nrp, String tgl_pinjam, String tgl_kembali, String status_peminjaman, int denda) {
+	public Peminjaman() {}
+
+	public Peminjaman(int id_peminjaman, String nrp, String isbn, String tgl_pinjam, String tgl_kembali,
+			String status_peminjaman, int denda, String judulbuku) {
 		super();
 		this.id_peminjaman = id_peminjaman;
 		this.nrp = nrp;
-		this.isbn=isbn;
+		this.isbn = isbn;
 		this.tgl_pinjam = tgl_pinjam;
 		this.tgl_kembali = tgl_kembali;
 		this.status_peminjaman = status_peminjaman;
 		this.denda = denda;
+		this.judulbuku = judulbuku;
+	}
+
+	public String getJudulbuku() {
+		return judulbuku;
+	}
+
+	public void setJudulbuku(String judulbuku) {
+		this.judulbuku = judulbuku;
+	}
+
+	public int getId_peminjaman() {
+		return id_peminjaman;
 	}
 
 	public String getNrp() {
@@ -94,6 +111,13 @@ public class Peminjaman {
 
 	public void setId_peminjaman(int id_peminjaman) {
 		this.id_peminjaman = id_peminjaman;
+	}
+
+	@Override
+	public String toString() {
+		return "Peminjaman [id_peminjaman=" + id_peminjaman + ", nrp=" + nrp + ", isbn=" + isbn + ", tgl_pinjam="
+				+ tgl_pinjam + ", tgl_kembali=" + tgl_kembali + ", status_peminjaman=" + status_peminjaman + ", denda="
+				+ denda + ", judulbuku=" + judulbuku + "]";
 	}
 	
 	

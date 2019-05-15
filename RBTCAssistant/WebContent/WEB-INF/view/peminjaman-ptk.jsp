@@ -8,9 +8,9 @@
 <title>RBTCAssistant</title>
 </head>
 <body>
-<h1>HALO MAHASISWA, ${model.nama }</h1>
-<a href="home-mhs">Home</a>
-<a href="histori-mhs?id=${model.nrp }">Histori Peminjaman</a>
+<h1>HALO PUSTAKAWAN, ${model.nama }</h1>
+<a href="home-ptk">Home</a>
+<a href="histori-ptk">Histori Peminjaman</a>
 <a href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br />
 
 <h2>Daftar Peminjaman</h2>
@@ -21,6 +21,7 @@
 	    <th>Tanggal Pengembalian</th>
 	    <th>Denda</th>
 	    <th>Status Peminjaman</th>
+	    <th>Action</th>
  	 </tr>
  	 <c:forEach var="value" items="${pinjam }"> 
 	 	 <tr>
@@ -29,8 +30,7 @@
 		    <th>${value.tgl_kembali }</th> 
 		    <th>${value.denda }</th>
 		    <th>${value.status_peminjaman }</th>
-		    <th>
-		    </th>
+		    <th><a href="statusPinjam?id=${value.id_peminjaman}">Ganti Status</a></th>
 	 	 </tr>
 	 </c:forEach>
 </table>

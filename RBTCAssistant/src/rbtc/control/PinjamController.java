@@ -45,6 +45,7 @@ public class PinjamController {
 		c.setTime(date);
 		c.add(Calendar.DAY_OF_YEAR, 7);
 		
+		pinjam.setJudulbuku(buku.getJudul());
 		pinjam.setIsbn(isbn);
 		pinjam.setStatus_peminjaman("Dipinjam");
 		pinjam.setTgl_pinjam(d.format(date));

@@ -14,6 +14,7 @@
 <a href="tambah-ptk">Tambah Pustakawan</a>
 <a href="/springmvc-hibernate-maven/buku/tambahBuku">Tambah Buku</a>
 <a href="daftarmhs-ptk">Daftar Mahasiswa</a>
+<a href="lihatpeminjaman">Daftar Peminjaman</a>
 <a href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br />
 
 <h1>Daftar Buku</h1>

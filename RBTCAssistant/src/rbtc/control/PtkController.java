@@ -21,10 +21,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import rbtc.dao.BukuDAO;
 import rbtc.dao.MahasiswaDAO;
+import rbtc.dao.PinjamDAO;
 import rbtc.dao.PustakawanDAO;
 import rbtc.model.Buku;
 import rbtc.model.Mahasiswa;
+import rbtc.model.Peminjaman;
 import rbtc.model.Pustakawan;
+import rbtc.model.Status;
 
 @Controller
 @RequestMapping("ptk")
@@ -38,6 +41,9 @@ public class PtkController {
 	
 	@Autowired
 	private BukuDAO bukudao;
+	
+	@Autowired
+	private PinjamDAO pinjamdao;
 	
 	@RequestMapping("/home-ptk")
 	public ModelAndView halamanPustakawan() {
@@ -94,4 +100,50 @@ public class PtkController {
 		}
 	}
 	
+	
+	//INI UNTUK NGEDIT" STATUS PEMINJAMAN
+	@RequestMapping("/lihatpeminjaman")
+	public ModelAndView listPinjamPage() {
+		ModelAndView mav = new ModelAndView("peminjaman-ptk");
+		List<Peminjaman> pinjams = pinjamdao.getAllDaftarPinjam();
+		mav.addObject("pinjam", pinjams);
+		return mav;
+	}
+	
+	@RequestMapping(value="statusPinjam", method=RequestMethod.GET)
+	public String ubahStatPinjamPage(@RequestParam("id") int id, Model status, Model idpj) {
+		status.addAttribute("status", new Status());
+		idpj.addAttribute("id", id);
+		return "pinjamstat-ptk";
+	}
+	
+	@RequestMapping(value="prosesPinjam", method= {RequestMethod.GET, RequestMethod.POST})
+	public String ubahStatPinjam(@Valid @ModelAttribute("status") Status status, @RequestParam("id") int id, BindingResult bind) {
+		if(bind.hasErrors()) {
+			return "redirect:/ptk/editPtk";
+		}
+		else {
+			Peminjaman pj = pinjamdao.getSpesifik(id);
+			//System.out.println(pj);
+			//System.out.println(status.getMessage());
+			pj.setStatus_peminjaman(status.getMessage());
+			pinjamdao.updatePinjam(pj);
+			if (status.getMessage().equals("Selesai") || status.getMessage().equals("Ditolak")) {
+				Buku buku = bukudao.getBuku(pj.getIsbn());
+				buku.setStatus("Tersedia");
+				bukudao.editStatus(buku);
+			}
+			return "redirect:/ptk/lihatpeminjaman";
+		}
+	}
+	
+	
+	//hehehehehe
+	@RequestMapping("/histori-ptk")
+	public ModelAndView historiPinjamPage() {
+		ModelAndView mav = new ModelAndView("historipinjam-ptk");
+		List<Peminjaman> list = pinjamdao.getHistoriPtk();
+		mav.addObject("pinjam", list);
+		return mav;
+	}
 }

@@ -27,9 +27,9 @@ import rbtc.dao.BukuDAO;
 import rbtc.dao.MahasiswaDAO;
 import rbtc.dao.PinjamDAO;
 import rbtc.model.Buku;
-import rbtc.model.Detail;
 import rbtc.model.Login;
 import rbtc.model.Mahasiswa;
+import rbtc.model.Peminjaman;
 import rbtc.model.Pustakawan;
 
 @Controller
@@ -94,11 +94,18 @@ public class MhsController {
 	@RequestMapping(value="peminjaman-mhs", method=RequestMethod.GET)
 	public ModelAndView pinjamPage(@RequestParam("id") String nrp) {
 		ModelAndView mav = new ModelAndView("peminjaman-mhs");
-		List<Detail> listnya = pinjamdao.getAllPinjamMhs(nrp);
+		List<Peminjaman> listnya = pinjamdao.getAllPinjamMhs(nrp);
 		mav.addObject("pinjam", listnya);
-		System.out.println(listnya);
+		//System.out.println(listnya);
 		return mav;
 	}
 	
+	@RequestMapping(value="histori-mhs", method=RequestMethod.GET)
+	public ModelAndView historiPage(@RequestParam("id") String nrp) {
+		ModelAndView mav = new ModelAndView("historipinjam-mhs");
+		List<Peminjaman> list = pinjamdao.getHistoriMhs(nrp);
+		mav.addObject("pinjam", list);
+		return mav;
+	}
 }
 ;
