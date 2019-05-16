@@ -27,9 +27,18 @@
 	 	 	<th>${value.judulbuku }</th>
 		    <th>${value.tgl_pinjam }</th>
 		    <th>${value.tgl_kembali }</th> 
-		    <th>${value.denda }</th>
-		    <th>${value.status_peminjaman }</th>
-		    <th>
+		    <th><c:if test = "${value.denda == 0 }">
+		    	<p>${value.denda }</p>
+		    </c:if>
+		    <c:if test = "${value.denda != 0 }">
+		    	<p style="color : red;">${value.denda }</p>
+		    </c:if></th>
+		    <th><c:if test = "${value.status_peminjaman == 'Terlambat' }">
+		    	<p style="color: red;">${value.status_peminjaman }</p>
+		    </c:if>
+		    <c:if test = "${value.status_peminjaman != 'Terlambat' }">
+		    	<p>${value.status_peminjaman }</p>
+		    </c:if>
 		    </th>
 	 	 </tr>
 	 </c:forEach>

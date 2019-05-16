@@ -39,7 +39,7 @@ public class PinjamController {
 		bukudao.editStatus(buku);
 		
 		//ngatur pinjamnya
-		DateFormat d = new SimpleDateFormat("yyyy/MM/dd");
+		DateFormat d = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		Calendar c = Calendar.getInstance();
 		c.setTime(date);
@@ -47,7 +47,7 @@ public class PinjamController {
 		
 		pinjam.setJudulbuku(buku.getJudul());
 		pinjam.setIsbn(isbn);
-		pinjam.setStatus_peminjaman("Dipinjam");
+		pinjam.setStatus_peminjaman("Menunggu");
 		pinjam.setTgl_pinjam(d.format(date));
 		pinjam.setTgl_kembali(d.format(c.getTime()));
 		pinjam.setDenda(0);

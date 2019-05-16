@@ -31,7 +31,7 @@ public class PinjamDAOImpl implements PinjamDAO {
 	@Override
 	public List<Peminjaman> getAllPinjamMhs(String nrp){
 		Session session = s.getCurrentSession();
-		String sql = "from Peminjaman as pj where pj.nrp = '"+nrp+"' and (pj.status_peminjaman = 'Dipinjam' or pj.status_peminjaman = 'OK')";
+		String sql = "from Peminjaman as pj where pj.nrp = '"+nrp+"' and (pj.status_peminjaman = 'Menunggu' or pj.status_peminjaman = 'OK' or pj.status_peminjaman = 'Terlambat')";
 		List<Peminjaman> pinjams = session.createQuery(sql).list();
 		//System.out.println(pinjams);
 		return pinjams;
@@ -41,7 +41,7 @@ public class PinjamDAOImpl implements PinjamDAO {
 	@Override
 	public List<Peminjaman> getAllDaftarPinjam(){
 		Session session = s.getCurrentSession();
-		String sql = "from Peminjaman as pj where pj.status_peminjaman = 'Dipinjam' or pj.status_peminjaman = 'OK'";
+		String sql = "from Peminjaman as pj where pj.status_peminjaman = 'Menunggu' or pj.status_peminjaman = 'OK' or pj.status_peminjaman = 'Terlambat'";
 		List<Peminjaman> pinjam = session.createQuery(sql).list();
 		//System.out.println(pinjam);
 		return pinjam;

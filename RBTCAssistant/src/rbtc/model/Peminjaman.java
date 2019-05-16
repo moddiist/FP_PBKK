@@ -29,7 +29,7 @@ public class Peminjaman {
 	private String status_peminjaman;
 	
 	@Column(name="denda")
-	private int denda;
+	private long denda;
 	
 	@Column(name="judul_buku")
 	private String judulbuku;
@@ -37,7 +37,7 @@ public class Peminjaman {
 	public Peminjaman() {}
 
 	public Peminjaman(int id_peminjaman, String nrp, String isbn, String tgl_pinjam, String tgl_kembali,
-			String status_peminjaman, int denda, String judulbuku) {
+			String status_peminjaman, long denda, String judulbuku) {
 		super();
 		this.id_peminjaman = id_peminjaman;
 		this.nrp = nrp;
@@ -101,11 +101,11 @@ public class Peminjaman {
 		this.isbn = isbn;
 	}
 
-	public int getDenda() {
+	public long getDenda() {
 		return denda;
 	}
 
-	public void setDenda(int denda) {
+	public void setDenda(long denda) {
 		this.denda = denda;
 	}
 

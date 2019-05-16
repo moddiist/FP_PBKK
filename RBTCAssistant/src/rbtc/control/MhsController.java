@@ -2,6 +2,9 @@ package rbtc.control;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -95,8 +98,23 @@ public class MhsController {
 	public ModelAndView pinjamPage(@RequestParam("id") String nrp) {
 		ModelAndView mav = new ModelAndView("peminjaman-mhs");
 		List<Peminjaman> listnya = pinjamdao.getAllPinjamMhs(nrp);
-		mav.addObject("pinjam", listnya);
-		//System.out.println(listnya);
+		DateFormat d = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = new Date();
+		for(Peminjaman item : listnya) {
+			LocalDate start = LocalDate.parse(d.format(date), DateTimeFormatter.ISO_LOCAL_DATE);
+			LocalDate finish = LocalDate.parse(item.getTgl_kembali(), DateTimeFormatter.ISO_LOCAL_DATE);
+			Duration diff = Duration.between(finish.atStartOfDay(), start.atStartOfDay());
+			long telat = diff.toDays();
+			if(telat > 0) {
+				long denda = telat*1000;
+				item.setDenda(denda);
+				item.setStatus_peminjaman("Terlambat");
+				pinjamdao.updatePinjam(item);
+			}
+		}
+		List<Peminjaman> pinjam = pinjamdao.getAllPinjamMhs(nrp);
+		mav.addObject("pinjam", pinjam);
+		//System.out.println(pinjam);
 		return mav;
 	}
 	

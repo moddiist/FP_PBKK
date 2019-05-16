@@ -19,10 +19,10 @@ Sistem ini memiliki kebutuhan yaitu :
   3. Melihat status peminjaman buku yang terdiri dari :  
         * Menunggu : Menunggu Pustakawan untuk mengganti status  
         * OK : Buku dapat dipinjam  
-        * Ditolak : Buku sudah ada yang meminjam  
+        * Ditolak : Buku tidak bisa dipinjam
         * Dipinjam : Buku sedang dipinjam  
         * Selesai : Buku sudah dikembalikan  
-        * Denda : Buku telat untuk dikembalikan  
+        * Terlambat : Buku telat untuk dikembalikan  
   4. Melihat tanggal pengembalian buku  
   5. Perhitungan denda yang harus dibayar, apabila pengembalian terlambat
   
@@ -34,6 +34,7 @@ Sistem ini memiliki kebutuhan yaitu :
   2. Melihat list peminjaman buku  
   3. Mengganti status peminjaman  
   4. Memberikan deadline pengembalian buku
+  5. Menambah Pustakawan lain
 ```
 
 ### Use Case Diagram

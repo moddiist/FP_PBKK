@@ -10,7 +10,7 @@
 <body>
 <h1>HALO MAHASISWA, ${model.nama }</h1>
 <a href="home-mhs">Home</a>
-<a href="peminjaman-mhs">Daftar Peminjaman</a>
+<a href="peminjaman-mhs?id=${model.nrp }">Daftar Peminjaman</a>
 <a href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br />
 
 <h2>Histori Peminjaman</h2>
