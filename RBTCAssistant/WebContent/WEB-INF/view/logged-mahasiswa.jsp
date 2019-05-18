@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> 
 <!DOCTYPE html>
 <html>
 <head>
-<spring:url value="/resources/css/maha.css" var="mainCss" />
+<spring:url value="/resources/css/table-mhs.css" var="mainCss" />
 <link href="${mainCss}" rel="stylesheet" />
 <meta charset="ISO-8859-1">
 <title>RBTCAssistant</title>
@@ -73,6 +74,19 @@ li a:hover {
   text-align: center;
   background-color: #0280c9;
   color: white;
+}
+
+#tabel a:link, a:visited {
+  background-color: #6078ea;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+#tabel a:hover, a:active {
+  background-color: #4a65e8;
 }
 </style>
 </head>
