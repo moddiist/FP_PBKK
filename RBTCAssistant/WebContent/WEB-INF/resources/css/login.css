@@ -30,17 +30,24 @@ form:password{
 
 .badan{
 	font-family : tw cen mt;
-	margin-top : 80px;
-	padding-top : 80px;
-	padding-left : 69px;
+	font-size : 16px;
+	margin-top : 20px;
+	padding-top : 20px;
+	padding-left : 80px;
+}
+
+form[path=id]{
+	background-color: black;
 }
 
 input[type=button], input[type=submit], input[type=reset] {
+	align-items : center; 
 	text-decoration: none;
-	font-size : 12px;
+	font-family : tw cen mt;
+	font-size : 16px;
 	border : none;
 	margin-left : 40px;
-	padding: 14px 25px;
+	padding: 10px 20px;
 	background-color : #1A8FCE;
 	color : white;
 }
@@ -49,3 +56,4 @@ input[type=submit]:hover {
 	background-color: #0B4564;
 	border-radius : 5px
 }
+

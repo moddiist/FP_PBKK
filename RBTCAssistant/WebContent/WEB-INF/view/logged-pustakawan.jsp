@@ -5,21 +5,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<spring:url value="/resources/css/logged-pustakwan.css" var="mainCss" />
+<spring:url value="/resources/css/logged-pustakawan.css" var="mainCss" />
 <link href="${mainCss}" rel="stylesheet" />
+<meta charset="ISO-8859-1">
 <title>RBTCAssistant</title>
 </head>
 <body>
 <h1>HALO PUSTAKAWAN, ${model.nama}</h1>
-<div ></div>
-<a href="editPtk">Ubah Data</a>
-<a href="tambah-ptk">Tambah Pustakawan</a>
-<a href="/springmvc-hibernate-maven/buku/tambahBuku">Tambah Buku</a>
-<a href="daftarmhs-ptk">Daftar Mahasiswa</a>
-<a href="lihatpeminjaman">Daftar Peminjaman</a>
-<a href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br />
-
+<ul>
+<li><a href="editPtk">Ubah Data</a></li>
+<li><a href="tambah-ptk">Tambah Pustakawan</a></li>
+<li><a href="/springmvc-hibernate-maven/buku/tambahBuku">Tambah Buku</a></li>
+<li><a href="daftarmhs-ptk">Daftar Mahasiswa</a></li>
+<li><a href="lihatpeminjaman">Daftar Peminjaman</a></li>
+<li style="float:right"><a class="aclive" href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br /></li>
+</ul>
 <h1>Daftar Buku</h1>
 <div class="table-responsive-md">
 <table class="table table-striped table-bordered" style="width:100%">
@@ -40,8 +40,8 @@
 		    <th>${value.tahun_terbit }</th> 
 		    <th>${value.edisi }</th>
 		    <th>${value.status }</th>
-		    <th><button type="button" class="btn btn-danger" href="/springmvc-hibernate-maven/buku/deleteBuku?id=${value.isbn }">Hapus</button>
-		    <button type="button" class="btn btn-info" href="/springmvc-hibernate-maven/buku/editStatus?id=${value.isbn}">Ubah</button></th>
+		    <th><a href="/springmvc-hibernate-maven/buku/deleteBuku?id=${value.isbn }">Hapus</a>
+		    <a href="/springmvc-hibernate-maven/buku/editStatus?id=${value.isbn}">Ubah</a></th>
 	 	 </tr>
 	 </c:forEach>
 </table>
