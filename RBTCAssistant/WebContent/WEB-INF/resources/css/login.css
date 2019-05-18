@@ -1,9 +1,19 @@
+body{
+	background : #17EAD9;
+	background: linear-gradient(to bottom right, #17EAD9, #6078ea);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: fixed;
+	
+}
+
 .besar{
 	width : 600px;
 	height : 420px;
-	border : 1px solid #318cbf; 
 	border-radius : 10px;
 	margin : auto;
+	background-color : white;
+	box-shadow: 10px 10px 5px grey;
 }
 
 .header{
