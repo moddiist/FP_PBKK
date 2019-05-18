@@ -9,24 +9,11 @@ body{
 .besar{
 	width : 450px;
 	height : 300px;
-	margin : auto;	
+	margin : auto;
 	background-color : white;
 	border-radius : 10px;
 	box-shadow: 10px 10px 5px #065499;
 	align-content: center;
-}
-
-.header{
-	font-style : arial;
-	font-weight : bold;
-	height : 30px;
-	border-top-left-radius : 10px;
-	border-top-right-radius : 10px;
-}
-
-img
-{
-	padding-left: 150px;
 }
 
 .logo{
@@ -37,6 +24,10 @@ img
 	text-shadow: 10px 10px 5px #065499;
 }
 
+form:password{
+	background-color: black;
+}
+
 .badan{
 	font-family : tw cen mt;
 	margin-top : 80px;
@@ -44,9 +35,9 @@ img
 	padding-left : 69px;
 }
 
-a:link, a:visited{
+input[type=button], input[type=submit], input[type=reset] {
 	text-decoration: none;
-	font-size : 18px;
+	font-size : 12px;
 	border : none;
 	margin-left : 40px;
 	padding: 14px 25px;
@@ -54,7 +45,7 @@ a:link, a:visited{
 	color : white;
 }
 
-a:hover{
+input[type=submit]:hover {
 	background-color: #0B4564;
 	border-radius : 5px
 }
