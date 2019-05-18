@@ -11,10 +11,8 @@
 <title>Login Page</title>
 </head>
 <body>
+<div class="logo"><h1>RBTCAssistant</h1></div>
 <div class="besar">
-	<div class="header">
-		<div class="logo">RBTCAssistant</div>
-	</div>
 	<div class="badan">
 		<div class="form-css">
 			<form:form action="prosesLogin" method="POST" modelAttribute="model">
@@ -26,7 +24,6 @@
 				<form:radiobutton path="role" value="Mahasiswa" />Mahasiswa
 				<form:radiobutton path="role" value="Pustakawan" />Pustakawan<br /><br />
 				<input type="submit" value="Submit">
-				
 			</form:form>
 		</div>
 	</div>

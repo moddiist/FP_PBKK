@@ -9,10 +9,7 @@ body{
 .besar{
 	width : 450px;
 	height : 300px;
-	margin-top : 150px;
-	margin-bottom : 150px;
-	margin-left: 265.8px;		
-	margin-right:265.8px;
+	margin : auto;
 	background-color : white;
 	border-radius : 10px;
 	box-shadow: 10px 10px 5px #065499;
