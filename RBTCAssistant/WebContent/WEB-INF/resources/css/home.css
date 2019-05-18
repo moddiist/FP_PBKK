@@ -1,43 +1,54 @@
+body{
+	background : #17EAD9;
+	background: linear-gradient(to bottom right, #17EAD9, #6078ea);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: fixed;
+	widht: 100%;
+	height: 100%;
+	align-content: center;
+}
+
 .besar{
 	width : 450px;
 	height : 300px;
 	margin : auto;	
 	background-color : white;
-	border : 1px solid #318cbf;
 	border-radius : 10px;
+	box-shadow: 10px 10px 5px grey;
 }
 
 .header{
 	height : 80px;
-	background-color : #318cbf;
 	border-top-left-radius : 10px;
 	border-top-right-radius : 10px;
 }
 
+img
+{
+	padding-left: 150px;
+}
+
 .logo{
 	font-family : tw cen mt;
-	color : white;
-	padding-top : 20px;
-	padding-left : 10px;
-	font-size : 30px;
-	text-shadow: 2px 2px 4px #000000;
+	padding-left : 130px;
+	font-size : 40px;
 }
 
 .badan{
 	font-family : tw cen mt;
-	margin-top : 40px;
-	padding-top : 40px;
+	margin-top : 80px;
+	padding-top : 80px;
 	padding-left : 110px;
 }
 
 a{
 	margin-left : 40px;
 	padding : 10px;
-	background-color : #59bcf2;
+	background-color : #1A8FCE;
 	color : white;
-	border-radius : 5px;
 }
-
-a:visited{
-	color : white;
+a:hover{
+	background-color: #0B4564;
+	border-radius : 5px
 }

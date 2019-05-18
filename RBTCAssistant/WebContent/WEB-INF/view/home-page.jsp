@@ -10,14 +10,15 @@
 <title>RBTCAssistant</title>
 </head>
 <body>
-<div class="besar">
-	<div class="header">
-		<div class="logo">RBTCAssistant</div>
+	<div class="besar">
+		<div class="header">
+			<img src="http://rbtc.if.its.ac.id/v8/template/default/img/logo.png">
+			<div class="logo">RBTCAssistant</div>
+		</div>
+		<div class="badan">
+			<a href="login">Login</a>
+			<a href="signup">Sign Up</a>
+		</div>
 	</div>
-	<div class="badan">
-		<a href="login">Login</a>
-		<a href="signup">Sign Up</a>
-	</div>
-</div>
 </body>
 </html>
