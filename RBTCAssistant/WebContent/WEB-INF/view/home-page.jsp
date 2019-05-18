@@ -10,10 +10,10 @@
 <title>RBTCAssistant</title>
 </head>
 <body>
+<div class="logo"><h1>RBTCAssistant</h1></div>
 	<div class="besar">
 		<div class="header">
 			<img src="http://rbtc.if.its.ac.id/v8/template/default/img/logo.png">
-			<div class="logo">RBTCAssistant</div>
 		</div>
 		<div class="badan">
 			<a href="login">Login</a>
