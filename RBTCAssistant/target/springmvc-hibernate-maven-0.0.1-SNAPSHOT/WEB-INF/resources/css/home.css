@@ -1,0 +1,51 @@
+body{
+	background : #17EAD9;
+	background: linear-gradient(to bottom right, #17EAD9, #6078ea);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: fixed;
+}
+
+.besar{
+	width : 450px;
+	height : 300px;
+	margin : auto;	
+	background-color : white;
+	border-radius : 10px;
+	box-shadow: 10px 10px 5px grey;
+}
+
+.header{
+	height : 80px;
+	border-top-left-radius : 10px;
+	border-top-right-radius : 10px;
+}
+
+img
+{
+	padding-left: 150px;
+}
+
+.logo{
+	font-family : tw cen mt;
+	padding-left : 130px;
+	font-size : 40px;
+}
+
+.badan{
+	font-family : tw cen mt;
+	margin-top : 80px;
+	padding-top : 80px;
+	padding-left : 110px;
+}
+
+a{
+	margin-left : 40px;
+	padding : 10px;
+	background-color : #1A8FCE;
+	color : white;
+}
+a:hover{
+	background-color: #0B4564;
+	border-radius : 5px
+}
