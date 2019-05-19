@@ -1,0 +1,89 @@
+.header{
+	background: linear-gradient(to bottom right, #17EAD9, #6078ea);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: fixed;
+	text-align: center;
+	font-family : arial;
+	font-size : 20px;
+	color: white;
+	text-shadow: 10px 10px 5px #065499;
+	padding : 20px;
+}
+
+.judul{
+	text-align: center;
+	font-family : arial;
+	font-size : 20px;
+	color: black;
+	text-shadow: 10px 10px 5px #cccccc;
+	padding : 17px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-family: arial;
+  font-size: 14px;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: red;
+}
+
+.active:hover{
+	background-color: #cc0000;
+}
+
+.besar{
+	width : 450px;
+	height : 300px;
+	margin : auto;
+	align-content: center;
+}
+
+.badan{
+	font-family : arial;
+	font-size : 16px;
+	padding-left : 80px;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+	align-content : center; 
+	text-decoration: none;
+	font-family : arial;
+	font-size : 16px;
+	border : none;
+	margin-left : 40px;
+	padding: 10px 20px;
+	background-color : #1A8FCE;
+	color : white;
+}
+
+input[type=submit]:hover {
+	background-color: #0B4564;
+	border-radius : 5px
+}
+
