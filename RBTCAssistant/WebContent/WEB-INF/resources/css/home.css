@@ -3,7 +3,7 @@ body{
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: fixed;
-	height: 600px;
+	height: 583px;
 }
 
 .besar{
@@ -35,6 +35,7 @@ img
 	font-size : 20px;
 	color: white;
 	text-shadow: 10px 10px 5px #065499;
+	-webkit-text-stroke: 1px #065499;
 }
 
 .badan{
