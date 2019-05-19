@@ -1,3 +1,25 @@
+.header{
+	background: linear-gradient(to bottom right, #17EAD9, #6078ea);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: fixed;
+	text-align: center;
+	font-family : arial;
+	font-size : 20px;
+	color: white;
+	text-shadow: 10px 10px 5px #065499;
+	padding : 20px;
+}
+
+.judul{
+	text-align: center;
+	font-family : arial;
+	font-size : 20px;
+	color: black;
+	text-shadow: 10px 10px 5px #cccccc;
+	padding : 17px;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -7,6 +29,8 @@ ul {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  font-family: arial;
+  font-size: 14px;
 }
 
 li {
@@ -29,31 +53,59 @@ li a:hover:not(.active) {
   background-color: red;
 }
 
-#buku {
-  font-family: tw cen mt;
-  border-collapse: collapse;
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto;
+.active:hover{
+	background-color: #cc0000;
 }
 
-#buku td, #buku th {
+#isi {
+  font-family: arial;
+  border-collapse: collapse;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13px;
+}
+
+#isi td, #isi th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#buku tr:nth-child(even){background-color: #f2f2f2;}
-
-#buku tr:hover {background-color: #ddd;}
+#isi tr:nth-child(even){background-color: #f2f2f2;}
 
 thead {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
   background-color: #065499;
   color: white;
+  text-align: center;
+  font-size: 16px;
 }
 
 .hapus{
 	background-color: red;
+	padding: 8px 10px;
+	text-decoration: none;
+	font-size : 12px;
+	border : none;
+	color: white;
+	border-radius: 5px;
+}
+
+.hapus:hover {
+	background-color: #cc0000;
+}
+
+.edit{
+	background-color: #00cc99;
+	padding: 8px 10px;
+	text-decoration: none;
+	font-size : 12px;
+	border : none;
+	color: white;
+	border-radius: 5px;
+}
+
+.edit:hover {
+	background-color: #009973;
 }

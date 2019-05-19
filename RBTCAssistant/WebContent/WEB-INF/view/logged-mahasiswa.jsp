@@ -59,7 +59,7 @@ li a:hover {
   margin-right: auto;
 }
 
-#tabel td, #customers th {
+#tabel td, #tabel th {
   border: 1px solid #ddd;
   padding: 8px;
 }
@@ -99,7 +99,6 @@ li a:hover {
 	<li><a href="editMhs">Ubah Data</a></li>
 	<li><a href="peminjaman-mhs?id=${model.nrp }">Peminjaman</a></li>
 	<li><a href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a></li>
-
 </ul>
 
 <div class=content>

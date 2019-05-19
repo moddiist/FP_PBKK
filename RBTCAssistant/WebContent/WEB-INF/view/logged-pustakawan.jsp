@@ -11,17 +11,22 @@
 <title>RBTCAssistant</title>
 </head>
 <body>
-<h1>HALO PUSTAKAWAN, ${model.nama}</h1>
+<div class="header">
+	<h1>HALO PUSTAKAWAN, ${model.nama}</h1>
+</div>
+
 <ul>
 <li><a href="editPtk">Ubah Data</a></li>
 <li><a href="tambah-ptk">Tambah Pustakawan</a></li>
 <li><a href="/springmvc-hibernate-maven/buku/tambahBuku">Tambah Buku</a></li>
 <li><a href="daftarmhs-ptk">Daftar Mahasiswa</a></li>
 <li><a href="lihatpeminjaman">Daftar Peminjaman</a></li>
-<li style="float:right"><a class="aclive" href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br /></li>
+<li style="float:right"><a class="active" href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a></li>
 </ul>
-<h1>Daftar Buku</h1>
-<table id="buku">
+
+<div class="judul"><h1>Daftar Buku</h1></div>
+
+<table id="isi">
 <thead>
 	<tr>
 	    <th>Judul</th>
@@ -29,7 +34,7 @@
 	    <th>Tahun Terbit</th>
 	    <th>Edisi</th>
 	    <th>Status</th>
-	    <th>Action</th>
+	    <th colspan="2">Action</th>
  	 </tr>
 </thead>
  	 <c:forEach var="value" items="${buku }"> 
@@ -39,11 +44,10 @@
 		    <th>${value.tahun_terbit }</th> 
 		    <th>${value.edisi }</th>
 		    <th>${value.status }</th>
-		    <th><a class="hapus" href="/springmvc-hibernate-maven/buku/deleteBuku?id=${value.isbn }">Hapus</a>
-		    <a class="edit" href="/springmvc-hibernate-maven/buku/editStatus?id=${value.isbn}">Ubah</a></th>
+		    <th><a class="hapus" href="/springmvc-hibernate-maven/buku/deleteBuku?id=${value.isbn }">Hapus</a></th>
+		    <th><a class="edit" href="/springmvc-hibernate-maven/buku/editStatus?id=${value.isbn}">Ubah</a></th>
 	 	 </tr>
 	 </c:forEach>
 </table>
-
 </body>
 </html>
