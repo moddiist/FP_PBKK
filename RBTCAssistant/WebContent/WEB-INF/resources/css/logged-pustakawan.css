@@ -28,3 +28,32 @@ li a:hover:not(.active) {
 .active {
   background-color: red;
 }
+
+#buku {
+  font-family: tw cen mt;
+  border-collapse: collapse;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#buku td, #buku th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#buku tr:nth-child(even){background-color: #f2f2f2;}
+
+#buku tr:hover {background-color: #ddd;}
+
+thead {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #065499;
+  color: white;
+}
+
+.hapus{
+	background-color: red;
+}

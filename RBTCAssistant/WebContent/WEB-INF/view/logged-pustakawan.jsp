@@ -21,9 +21,8 @@
 <li style="float:right"><a class="aclive" href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br /></li>
 </ul>
 <h1>Daftar Buku</h1>
-<div class="table-responsive-md">
-<table class="table table-striped table-bordered" style="width:100%">
-<thead class="thead-dark">
+<table id="buku">
+<thead>
 	<tr>
 	    <th>Judul</th>
 	    <th>Pengarang</th> 
@@ -32,7 +31,7 @@
 	    <th>Status</th>
 	    <th>Action</th>
  	 </tr>
- </thead>
+</thead>
  	 <c:forEach var="value" items="${buku }"> 
 	 	 <tr>
 	 	 	<th>${value.judul }</th>
@@ -40,12 +39,11 @@
 		    <th>${value.tahun_terbit }</th> 
 		    <th>${value.edisi }</th>
 		    <th>${value.status }</th>
-		    <th><a href="/springmvc-hibernate-maven/buku/deleteBuku?id=${value.isbn }">Hapus</a>
-		    <a href="/springmvc-hibernate-maven/buku/editStatus?id=${value.isbn}">Ubah</a></th>
+		    <th><a class="hapus" href="/springmvc-hibernate-maven/buku/deleteBuku?id=${value.isbn }">Hapus</a>
+		    <a class="edit" href="/springmvc-hibernate-maven/buku/editStatus?id=${value.isbn}">Ubah</a></th>
 	 	 </tr>
 	 </c:forEach>
 </table>
-</div>
 
 </body>
 </html>
