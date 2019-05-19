@@ -5,23 +5,47 @@
 <html>
 <head>
 <spring:url value="/resources/css/home.css" var="mainCss" />
-<link href="${mainCss}" rel="stylesheet" />
+<spring:url value="/resources/lib/bootstrap/css/bootstrap.min.css" var="bootstrapmin" />
+<spring:url value="/resources/lib/animate/animate.min.css" var="animate" />
+<spring:url value="/resources/lib/font-awesome/css/font-awesome.min.css" var="fontawesome" />
+<spring:url value="/resources/lib/ionicons/css/ionicons.min.css" var="ionicons" />
+<spring:url value="/resources/lib/owlcarousel/assets/owl.carousel.min.css" var="owlcarousel" />
+<spring:url value="/resources/lib/magnific-popup/magnific-popup.css" var="magnificpopup" />
+<spring:url value="/resources/css1/style.css" var="css" />
+
+<!-- <link href="${mainCss}" rel="stylesheet" /> -->
+
+<!-- Bootstrap CSS File -->
+<link href="${bootstrapmin}" rel="stylesheet">
+
+<!-- Libraries CSS Files -->
+<link href="${fontawesome}" rel="stylesheet">
+<link href="${animate}" rel="stylesheet">
+<link href="${ionicons}" rel="stylesheet">
+<link href="${owlcarousel}" rel="stylesheet">
+<link href="${magnificpopup}" rel="stylesheet">
+
+<!-- Main Stylesheet File -->
+<link href="${css}" rel="stylesheet">
 <meta charset="ISO-8859-1">
 <title>RBTCAssistant</title>
 </head>
 <body>
-<div class="logo">
-<h1 style="font-size:65px">Selamat Datang!</h1>
-<h1>RBTCAssistant</h1>
-</div>
-	<div class="besar">
-		<div class="header">
-			<img src="http://rbtc.if.its.ac.id/v8/template/default/img/logo.png">	
-		</div>
-		<div class="badan">
-			<a href="login">Login</a>
-			<a href="signup">Sign Up</a>
-		</div>
-	</div>
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+
+    <div class="intro-content">
+      <h2>RBTC<span>Assistant</span><br></h2>
+      <div>
+        <a href="login" class="btn-get-started scrollto">Login</a>
+        <a href="signup" class="btn-projects scrollto">Sign Up</a>
+      </div>
+    </div>
+	
+ 
+
+  </section><!-- #intro -->
 </body>
 </html>
