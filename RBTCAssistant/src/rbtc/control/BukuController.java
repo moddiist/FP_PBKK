@@ -1,5 +1,7 @@
 package rbtc.control;
 
+import java.util.List;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import rbtc.dao.BukuDAO;
 import rbtc.model.Buku;
 import rbtc.model.Mahasiswa;
 import rbtc.model.Pustakawan;
+import rbtc.model.Status;
 
 @Controller
 @RequestMapping("buku")
@@ -68,5 +71,4 @@ public class BukuController {
 			return "redirect:/ptk/home-ptk";
 		}
 	}
-	
 }

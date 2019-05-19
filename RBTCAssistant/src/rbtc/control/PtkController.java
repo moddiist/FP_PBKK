@@ -52,20 +52,50 @@ public class PtkController {
 	private PinjamDAO pinjamdao;
 	
 	@RequestMapping("/home-ptk")
-	public ModelAndView halamanPustakawan() {
+	public ModelAndView halamanPustakawan(Model status) {
 		ModelAndView mav = new ModelAndView("logged-pustakawan");
 		List<Buku> buku = bukudao.getAllBuku();
+		status.addAttribute("status", new Status());
 		mav.addObject("buku", buku);
 		return mav;
 	}
 	
+	@RequestMapping("/searchBuku")
+	public ModelAndView cariBuku(@Valid @ModelAttribute("status") Status search,BindingResult bindres) {
+		if(bindres.hasErrors()) {
+			ModelAndView mav = new ModelAndView("logged-pustakawan");
+			return mav;
+		}
+		else {
+			ModelAndView mav = new ModelAndView("logged-pustakawan");
+			List<Buku> buku = bukudao.getSearchBuku(search.getMessage());
+			mav.addObject("buku", buku);
+			return mav;
+		}
+	}
+	
 	//INI NAMPILIN DAFTAR MAHASISWA VIA PUSTAKAWAN
 	@RequestMapping("/daftarmhs-ptk")
-	public ModelAndView daftarmhsPustakawan() {
+	public ModelAndView daftarmhsPustakawan(Model status) {
 		ModelAndView mav = new ModelAndView("daftarmhs-pustakawan");
 		List<Mahasiswa> mhs = mhsdao.getAllMhs();
+		status.addAttribute("status", new Status());
 		mav.addObject("mahasiswa", mhs);
 		return mav;
+	}
+	
+	@RequestMapping("/searchMhs")
+	public ModelAndView cariMhs(@Valid @ModelAttribute("status") Status search,BindingResult bindres) {
+		if(bindres.hasErrors()) {
+			ModelAndView mav = new ModelAndView("daftarmhs-pustakawan");
+			return mav;
+		}
+		else {
+			ModelAndView mav = new ModelAndView("daftarmhs-pustakawan");
+			List<Mahasiswa> mhs = mhsdao.getSearchMahasiswa(search.getMessage());
+			mav.addObject("mahasiswa", mhs);
+			return mav;
+		}
 	}
 	
 	@RequestMapping("/tambah-ptk")
@@ -161,10 +191,12 @@ public class PtkController {
 	
 	//hehehehehe
 	@RequestMapping("/histori-ptk")
-	public ModelAndView historiPinjamPage() {
+	public ModelAndView historiPinjamPage(Model status) {
 		ModelAndView mav = new ModelAndView("historipinjam-ptk");
 		List<Peminjaman> list = pinjamdao.getHistoriPtk();
+		status.addAttribute("status", new Status());
 		mav.addObject("pinjam", list);
 		return mav;
 	}
+	
 }

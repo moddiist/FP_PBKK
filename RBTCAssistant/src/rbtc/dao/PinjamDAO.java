@@ -11,7 +11,6 @@ public interface PinjamDAO {
 	public List<Peminjaman> getAllDaftarPinjam();
 	public void updatePinjam(Peminjaman pinjam);
 	public Peminjaman getSpesifik(int id);
-	
 	public List<Peminjaman> getHistoriMhs(String nrp);
 	public List<Peminjaman> getHistoriPtk();
 	

@@ -2,10 +2,15 @@ package rbtc.dao;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 import javax.transaction.Transactional;
 
+import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -52,5 +57,14 @@ public class BukuDAOImpl implements BukuDAO {
 	public void editStatus(Buku buku) {
 		Session session = s.getCurrentSession();
 		session.update(buku);
+	}
+	
+	@Transactional
+	@Override
+	public List<Buku> getSearchBuku(String search){
+		Session session = s.getCurrentSession();
+		String sql = "from Buku as b where b.judul like '%"+search+"%' or b.pengarang like '%"+search+"%'";
+		List<Buku> buku = session.createQuery(sql).list();
+		return buku;
 	}
 }

@@ -53,4 +53,13 @@ public class MahasiswaDAOImpl implements MahasiswaDAO {
 		Session session = s.getCurrentSession();
 		session.update(mhs);
 	}
+	
+	@Transactional
+	@Override
+	public List<Mahasiswa> getSearchMahasiswa(String search){
+		Session session = s.getCurrentSession();
+		String sql = "from Mahasiswa as m where m.nama like '%"+search+"%' or m.nrp like '%"+search+"%' or m.email like '%"+search+"%'";
+		List<Mahasiswa> mhs = session.createQuery(sql).list();
+		return mhs;
+	}
 }

@@ -11,4 +11,5 @@ public interface BukuDAO {
 	public void deleteBuku(Buku buku);
 	public List<Buku> getAllBuku();
 	public void editStatus(Buku buku);
+	public List<Buku> getSearchBuku(String search);
 }

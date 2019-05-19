@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +28,8 @@
 <thead>
 	<tr>
 	    <th>Buku</th>
+	    <th>Nama</th>
+	    <th>NRP</th>
 	    <th>Tanggal Peminjaman</th> 
 	    <th>Tanggal Pengembalian</th>
 	    <th>Denda</th>
@@ -36,6 +39,8 @@
  	 <c:forEach var="value" items="${pinjam }"> 
 	 	 <tr>
 	 	 	<th>${value.judulbuku }</th>
+	 	 	<th>${value.namaMhs }</th>
+	 	 	<th>${value.nrp }</th>
 		    <th>${value.tgl_pinjam }</th>
 		    <th>${value.tgl_kembali }</th> 
 		    <th>${value.denda }</th>

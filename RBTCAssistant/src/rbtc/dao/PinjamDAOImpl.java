@@ -31,7 +31,7 @@ public class PinjamDAOImpl implements PinjamDAO {
 	@Override
 	public List<Peminjaman> getAllPinjamMhs(String nrp){
 		Session session = s.getCurrentSession();
-		String sql = "from Peminjaman as pj where pj.nrp = '"+nrp+"' and (pj.status_peminjaman = 'Menunggu' or pj.status_peminjaman = 'OK' or pj.status_peminjaman = 'Terlambat')";
+		String sql = "from Peminjaman as pj where pj.nrp = '"+nrp+"' and (pj.status_peminjaman = 'Menunggu' or pj.status_peminjaman = 'OK' or pj.status_peminjaman = 'Terlambat') order by id_peminjaman desc ";
 		List<Peminjaman> pinjams = session.createQuery(sql).list();
 		//System.out.println(pinjams);
 		return pinjams;
@@ -41,7 +41,7 @@ public class PinjamDAOImpl implements PinjamDAO {
 	@Override
 	public List<Peminjaman> getAllDaftarPinjam(){
 		Session session = s.getCurrentSession();
-		String sql = "from Peminjaman as pj where pj.status_peminjaman = 'Menunggu' or pj.status_peminjaman = 'OK' or pj.status_peminjaman = 'Terlambat'";
+		String sql = "from Peminjaman as pj where pj.status_peminjaman = 'Menunggu' or pj.status_peminjaman = 'OK' or pj.status_peminjaman = 'Terlambat' order by id_peminjaman desc";
 		List<Peminjaman> pinjam = session.createQuery(sql).list();
 		//System.out.println(pinjam);
 		return pinjam;
@@ -66,7 +66,7 @@ public class PinjamDAOImpl implements PinjamDAO {
 	@Override
 	public List<Peminjaman> getHistoriMhs(String nrp){
 		Session session = s.getCurrentSession();
-		String sql= "from Peminjaman as pj where pj.nrp = '"+nrp+"' and (pj.status_peminjaman = 'Selesai' or status_peminjaman = 'Ditolak')";
+		String sql= "from Peminjaman as pj where pj.nrp = '"+nrp+"' and (pj.status_peminjaman = 'Selesai' or status_peminjaman = 'Ditolak') order by id_peminjaman desc";
 		List<Peminjaman> list = session.createQuery(sql).list();
 		return list;
 	}
@@ -75,7 +75,7 @@ public class PinjamDAOImpl implements PinjamDAO {
 	@Override
 	public List<Peminjaman> getHistoriPtk(){
 		Session session = s.getCurrentSession();
-		String sql = "from Peminjaman as pj where pj.status_peminjaman = 'Selesai' or pj.status_peminjaman = 'Ditolak'";
+		String sql = "from Peminjaman as pj where pj.status_peminjaman = 'Selesai' or pj.status_peminjaman = 'Ditolak' order by id_peminjaman desc";
 		List<Peminjaman> pinjam = session.createQuery(sql).list();
 		return pinjam;
 	}

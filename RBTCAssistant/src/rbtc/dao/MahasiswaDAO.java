@@ -11,4 +11,5 @@ public interface MahasiswaDAO {
 	public void deleteMhs(Mahasiswa mhs);
 	public List<Mahasiswa> getAllMhs();
 	public void editMhs(Mahasiswa mhs);
+	public List<Mahasiswa> getSearchMahasiswa(String search);
 }

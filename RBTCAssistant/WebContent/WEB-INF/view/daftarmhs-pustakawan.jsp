@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +22,13 @@
 <li style="float:right"><a class="active" href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a></li>
 </ul>
 <div class="judul"><h2>Daftar Mahasiswa</h2></div>
+<div class="pencarian">
+	<form:form action="searchMhs" method="POST" modelAttribute="status">
+		<label>Pencarian</label>
+		<form:input path="message" />
+		<input type="submit" value="Cari">
+	</form:form>
+</div>
 <table id="isi">
 <thead>
 	<tr>
