@@ -11,10 +11,8 @@
 <title>Sign Up</title>
 </head>
 <body>
+<div class="logo"><h1>RBTCAssistant</h1></div>
 <div class="besar">
-	<div class="header">
-		<div class="logo">RBTCAssistant</div>
-	</div>
 	<div class="badan">
 		<div class="form-css">
 			<form:form action="/springmvc-hibernate-maven/mhs/prosesDaftar" method="POST" modelAttribute="model">
