@@ -5,16 +5,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<spring:url value="/resources/css/logged-pustakawan.css" var="mainCss" />
+<spring:url value="/resources/css/tabel.css" var="mainCss" />
 <link href="${mainCss}" rel="stylesheet" />
 <meta charset="ISO-8859-1">
-<title>RBTCAssistant</title>
+<title>RBTCAssistant:Welcome</title>
 </head>
 <body>
 <div class="header">
-	<h1>HALO PUSTAKAWAN, ${model.nama}</h1>
+<h1>RBTCAssistant</h1>
+<h3>HALO PUSTAKAWAN, ${model.nama }</h3>
 </div>
-
 <ul>
 <li><a href="editPtk">Ubah Data</a></li>
 <li><a href="tambah-ptk">Tambah Pustakawan</a></li>

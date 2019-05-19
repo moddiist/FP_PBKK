@@ -12,15 +12,17 @@
 <title>RBTCAssistant:Tambah Pustakwan</title>
 </head>
 <body>
+<body>
 <div class="header">
-<h1>Tambah Pustakwan</h1>
+<h1>RBTCAssistant</h1>
+<h3>HALO PUSTAKAWAN, ${model.nama }</h3>
 </div>
 <ul>
 <li><a href="/springmvc-hibernate-maven/ptk/home-ptk">Home</a></li>
 <li style="float:right"><a class="active" href="/springmvc-hibernate-maven/RBTCAssistant/">Logout</a></li>
 </ul>
 <div class="besar">
-<div class="judul"><h2>RBTCAssistant</h2></div>
+<div class="judul"><h2>Tambah Pustakawan</h2></div>
 	<div class="badan">
 		<div class="form-css">
 			<form:form action="daftarPustakawan" method="POST" modelAttribute="ptk">

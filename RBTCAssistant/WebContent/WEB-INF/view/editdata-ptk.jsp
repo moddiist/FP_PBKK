@@ -12,8 +12,10 @@
 <title>RBTCAssistant:Edit Profil</title>
 </head>
 <body>
+<body>
 <div class="header">
 <h1>RBTCAssistant</h1>
+<h3>HALO PUSTAKAWAN, ${model.nama }</h3>
 </div>
 <ul>
 <li><a href="/springmvc-hibernate-maven/ptk/home-ptk">Home</a></li>
