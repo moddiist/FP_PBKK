@@ -12,7 +12,6 @@
 <title>RBTCAssistant:Edit Profil</title>
 </head>
 <body>
-<body>
 <div class="header">
 <h1>RBTCAssistant</h1>
 <h3>HALO PUSTAKAWAN, ${model.nama }</h3>

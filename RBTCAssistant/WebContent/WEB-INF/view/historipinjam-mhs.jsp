@@ -1,104 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<spring:url value="/resources/css/table-mhs.css" var="mainCss" />
+<spring:url value="/resources/css/tabel.css" var="mainCss" />
 <link href="${mainCss}" rel="stylesheet" />
 <meta charset="ISO-8859-1">
-<title>RBTCAssistant</title>
-<style>
-body {
-  background-color: white;
-  margin-bottom: 20px;
-}
-
-.header {
-  background: linear-gradient(to bottom right, #17EAD9, #6078ea);
-  padding: 20px;
-  text-align: center;
-}
-
-.content h2 {
-  text-align: center;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #04275e;
-}
-
-
-
-#tabel {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#tabel td, #tabel th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#tabel tr:nth-child(even){background-color: #f2f2f2;}
-
-#tabel tr:hover {background-color: #ddd;}
-
-#tabel th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-  background-color: #0280c9;
-  color: white;
-}
-</style>
+<title>RBTCAssistant:Histori Peminjaman</title>
 </head>
 <body>
-<div class=header>
-	<h1>HALO MAHASISWA, ${model.nama }</h1>
+<div class="header">
+<h1>RBTCAssistant</h1>
+<h3>HALO MAHASISWA, ${model.nama }</h3>
 </div>
 
 <ul>
 	<li><a href="home-mhs">Home</a></li>
 	<li><a href="peminjaman-mhs?id=${model.nrp }">Daftar Peminjaman</a></li>
-	<li><a href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a></li>
+	<li style="float:right"><a class="active" href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a></li>
 
 </ul>
 
-<div class=content>
+<div class="judul">
 <h2>Histori Peminjaman</h2>
-	<table id="tabel">
+</div>
+<table id="isi">
+<thead>
 		<tr>
 		    <th>Buku</th>
 		    <th>Tanggal Peminjaman</th> 
 		    <th>Tanggal Pengembalian</th>
 		    <th>Denda</th>
 		    <th>Status Peminjaman</th>
-		    
 	 	 </tr>
+</thead>
 	 	 <c:forEach var="value" items="${pinjam }"> 
 		 	 <tr>
 		 	 	<th>${value.judulbuku }</th>

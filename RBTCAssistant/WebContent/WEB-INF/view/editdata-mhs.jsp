@@ -1,121 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
 <head>
+<spring:url value="/resources/css/form.css" var="mainCss" />
+<link href="${mainCss}" rel="stylesheet" />
 <meta charset="ISO-8859-1">
-<title>RBTCAssistant</title>
-<style>
-body {
-  background-color: white;
-  margin-bottom: 20px;
-}
-
-.top .header {
-  background: linear-gradient(to bottom right, #17EAD9, #6078ea);
-  padding: 20px;
-  text-align: center;
- }
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #04275e;
-}
-
-.besar{
-	width : 450px;
-	height : 500px;
-	margin : auto;
-	background-color : #52b4f2;
-	border-radius : 10px;
-	box-shadow: 10px 10px 5px #065499;
-	align-content: center;
-}
-
-.logo{
-	font-family : tw cen mt;
-	text-align : center;
-	font-size : 20px;
-	color: #063684;
-	text-shadow: 10px 10px 5px #065499;
-	padding-top: 8px;
-}
-
-form:password{
-	background-color: black;
-}
-
-.badan{
-	font-family : tw cen mt;
-	font-size : 16px;
-	margin-top : 20px;
-	margin-bottom:100px;
-	padding-top : 20px;
-	padding-left : 120px;
-}
-
-form[path=id]{
-	background-color: black;
-}
-
-input[type=button], input[type=submit], input[type=reset] {
-	align-items : center; 
-	text-decoration: none;
-	font-family : tw cen mt;
-	font-size : 16px;
-	border : none;
-	margin-left : 60px;
-	padding: 10px 20px;
-	background-color : #1A8FCE;
-	color : white;
-}
-
-input[type=submit]:hover {
-	background-color: #0B4564;
-	border-radius : 5px
-}
-</style>
+<title>RBTCAssistant:Edit Profil</title>
 </head>
-
 <body>
-<div class=top>
-	<div class=header>
-		<h1>EDIT DATA</h1>
-	</div>
+<div class="header">
+<h1>RBTCAssistant</h1>
+<h3>HALO MAHASISWA, ${model.nama }</h3>
 </div>
-
 <ul>
 	<li><a href="/springmvc-hibernate-maven/mhs/home-mhs">Home</a></li>
-	<li><a href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a></li>
+	<li style="float:right"><a class="active" href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a></li>
 </ul>
 
 <br></br>
 <div class="besar">
-	<div class="header">
-		<div class="logo">
-			<h3>RBTCAssistant</h3>
-		</div>
-	</div>
+<div class="judul"><h2>Edit Profil</h2></div>
 	<div class="badan">
 		<div class="form-css">
 			<form:form action="editDb" method="POST" modelAttribute="model">
@@ -133,6 +41,6 @@ input[type=submit]:hover {
 			</form:form>
 		</div>
 	</div>
-</div>
+</div>	
 </body>
 </html>

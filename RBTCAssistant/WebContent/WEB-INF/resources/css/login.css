@@ -7,8 +7,8 @@ body{
 }
 
 .besar{
-	width : 450px;
-	height : 300px;
+	width : 500px;
+	height : 370px;
 	margin : auto;
 	background-color : white;
 	border-radius : 10px;
@@ -47,10 +47,40 @@ input[type=button], input[type=submit], input[type=reset] {
 	padding: 10px 20px;
 	background-color : #1A8FCE;
 	color : white;
+	border-radius: 5px;
 }
 
 input[type=submit]:hover {
 	background-color: #0B4564;
-	border-radius : 5px
+	border-radius: 5px;
+}
+
+input[type=text] {
+	width: 80%;
+	padding: 8px 15px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+
+input[type=password]{
+	width: 80%;
+	padding: 8px 15px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+
+input[type=radiobutton]:active{
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
