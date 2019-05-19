@@ -18,7 +18,7 @@
 <li><a href="/springmvc-hibernate-maven/buku/tambahBuku">Tambah Buku</a></li>
 <li><a href="daftarmhs-ptk">Daftar Mahasiswa</a></li>
 <li><a href="lihatpeminjaman">Daftar Peminjaman</a></li>
-<li style="float:right"><a class="aclive" href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a><br /><br /></li>
+<li style="float:right"><a class="aclive" href="/springmvc-hibernate-maven/RBTCAssistant/logout">Logout</a></li>
 </ul>
 <h1>Daftar Buku</h1>
 <div class="table-responsive-md">
