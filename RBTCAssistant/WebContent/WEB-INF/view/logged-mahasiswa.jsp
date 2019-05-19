@@ -6,6 +6,11 @@
 <html>
 <head>
 <spring:url value="/resources/css/tabel.css" var="mainCss" />
+<spring:url value="/resources/lib/bootstrap/css/bootstrap.min.css" var="bootstrapmin" />
+<spring:url value="/resources/css1/style.css" var="css" />
+<link href="${mainCss}" rel="stylesheet" />
+<link href="${bootstrapmin}" rel="stylesheet">
+<link href="${css}" rel="stylesheet">
 <link href="${mainCss}" rel="stylesheet" />
 <meta charset="ISO-8859-1">
 <title>RBTCAssistant:Welcome</title>
