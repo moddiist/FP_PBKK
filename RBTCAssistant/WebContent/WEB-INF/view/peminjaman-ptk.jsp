@@ -27,6 +27,8 @@
 <thead>
 	<tr>
 	    <th>Buku</th>
+	    <th>NRP</th>
+	    <th>Nama</th>
 	    <th>Tanggal Peminjaman</th> 
 	    <th>Tanggal Pengembalian</th>
 	    <th>Denda</th>
@@ -37,6 +39,8 @@
  	 <c:forEach var="value" items="${pinjam }"> 
 	 	 <tr>
 	 	 	<th>${value.judulbuku }</th>
+	 	 	<th>${value.nrp }</th>
+	 	 	<th>${value.namaMhs }</th>
 		    <th>${value.tgl_pinjam }</th>
 		    <th>${value.tgl_kembali }</th> 
 		    <th>${value.denda }</th>

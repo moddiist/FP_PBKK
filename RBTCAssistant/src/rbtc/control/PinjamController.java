@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import rbtc.dao.BukuDAO;
+import rbtc.dao.MahasiswaDAO;
 import rbtc.dao.PinjamDAO;
 import rbtc.model.Buku;
 import rbtc.model.Mahasiswa;
@@ -29,6 +30,9 @@ public class PinjamController {
 	@Autowired
 	BukuDAO bukudao;
 	
+	@Autowired
+	MahasiswaDAO mhsdao;
+	
 	
 	@RequestMapping(value="prosesPinjam", method=RequestMethod.GET)
 	public String prosesPinjam(@RequestParam("id") String isbn, @RequestParam("nrp") String nrp) {
@@ -37,6 +41,7 @@ public class PinjamController {
 		Buku buku = bukudao.getBuku(isbn);
 		buku.setStatus("Dipinjam");
 		bukudao.editStatus(buku);
+		Mahasiswa mhs = mhsdao.getMhs(nrp);
 		
 		//ngatur pinjamnya
 		DateFormat d = new SimpleDateFormat("yyyy-MM-dd");
@@ -52,6 +57,7 @@ public class PinjamController {
 		pinjam.setTgl_kembali(d.format(c.getTime()));
 		pinjam.setDenda(0);
 		pinjam.setNrp(nrp);
+		pinjam.setNamaMhs(mhs.getNama());
 		dao.savePinjam(pinjam);
 		return "redirect:/mhs/home-mhs";
 	}

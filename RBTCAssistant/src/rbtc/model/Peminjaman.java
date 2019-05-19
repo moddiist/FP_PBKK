@@ -16,6 +16,9 @@ public class Peminjaman {
 	@Column(name="nrp")
 	private String nrp;
 	
+	@Column(name="nama_mhs")
+	private String namaMhs;
+	
 	@Column(name="isbn")
 	private String isbn;
 	
@@ -36,11 +39,12 @@ public class Peminjaman {
 	
 	public Peminjaman() {}
 
-	public Peminjaman(int id_peminjaman, String nrp, String isbn, String tgl_pinjam, String tgl_kembali,
+	public Peminjaman(int id_peminjaman, String nrp, String namaMhs, String isbn, String tgl_pinjam, String tgl_kembali,
 			String status_peminjaman, long denda, String judulbuku) {
 		super();
 		this.id_peminjaman = id_peminjaman;
 		this.nrp = nrp;
+		this.namaMhs = namaMhs;
 		this.isbn = isbn;
 		this.tgl_pinjam = tgl_pinjam;
 		this.tgl_kembali = tgl_kembali;
@@ -113,15 +117,12 @@ public class Peminjaman {
 		this.id_peminjaman = id_peminjaman;
 	}
 
-	@Override
-	public String toString() {
-		return "Peminjaman [id_peminjaman=" + id_peminjaman + ", nrp=" + nrp + ", isbn=" + isbn + ", tgl_pinjam="
-				+ tgl_pinjam + ", tgl_kembali=" + tgl_kembali + ", status_peminjaman=" + status_peminjaman + ", denda="
-				+ denda + ", judulbuku=" + judulbuku + "]";
+	public String getNamaMhs() {
+		return namaMhs;
 	}
-	
-	
-	
-	
+
+	public void setNamaMhs(String namaMhs) {
+		this.namaMhs = namaMhs;
+	}
 	
 }
