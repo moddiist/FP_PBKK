@@ -43,7 +43,6 @@ input[type=button], input[type=submit], input[type=reset] {
 	font-family : arial;
 	font-size : 16px;
 	border : none;
-	margin-left : 40px;
 	padding: 10px 20px;
 	background-color : #1A8FCE;
 	color : white;
