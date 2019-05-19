@@ -9,6 +9,7 @@
 	color: white;
 	text-shadow: 10px 10px 5px #065499;
 	padding : 20px;
+	-webkit-text-stroke: 1px #065499;
 }
 
 .judul{
@@ -18,7 +19,6 @@
 	color: black;
 	text-shadow: 10px 10px 5px #cccccc;
 	padding : 17px;
-	-webkit-text-stroke: 1px #065499;
 }
 
 ul {
